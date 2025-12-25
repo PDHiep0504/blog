@@ -1,4 +1,4 @@
-baseURL = "https://PDHiep0504.github.io/blog"
+baseURL = "https://PDHiep0504.github.io/blog/"
 languageCode = "vi-VN"
 title = "Blog Lập Trình - Programming Blog"
 theme = "minimalist"
