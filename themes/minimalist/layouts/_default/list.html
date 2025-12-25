@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="content">
+    {{ .Content }}
+</div>
+
+<h2>Tất cả bài viết</h2>
+<ul class="posts-list">
+    {{ range .Pages }}
+    <li class="post-item">
+        <div class="post-meta">
+            {{ .Date.Format "02/01/2006" }}
+            {{ if .Params.categories }}
+            • {{ delimit .Params.categories ", " }}
+            {{ end }}
+        </div>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ if .Params.tags }}
+        <div class="tags">
+            {{ range .Params.tags }}
+            <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

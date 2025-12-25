@@ -1,0 +1,33 @@
+baseURL = "https://PDHiep0504.github.io/blog"
+languageCode = "vi-VN"
+title = "Blog Lập Trình - Programming Blog"
+theme = "minimalist"
+
+[params]
+  author = "Phạm Đình Hiệp"
+  description = "Blog chia sẻ kiến thức về Java và JavaScript"
+  subtitle = "Chia sẻ kiến thức lập trình mạng"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/posts/"
+    weight = 2
+  
+  [[menu.main]]
+    identifier = "about"
+    name = "Giới thiệu"
+    url = "/about/"
+    weight = 3
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
