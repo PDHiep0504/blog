@@ -1,25 +1,40 @@
 {{ define "main" }}
-{{ .Content }}
+<div class="content">
+    {{ .Content }}
+</div>
 
-<h2>Bài viết mới nhất</h2>
-<ul class="posts-list">
-    {{ range first 9 (where .Site.RegularPages "Section" "posts") }}
-    <li class="post-item">
-        <div class="post-meta">
-            {{ .Date.Format "02/01/2006" }}
-            {{ if .Params.categories }}
-            • {{ delimit .Params.categories ", " }}
+<section style="margin-top: 64px;">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px;">
+        ✨ Bài viết mới nhất
+    </h2>
+    <ul class="posts-list">
+        {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+        <li class="post-item">
+            <div class="post-meta">
+                {{ .Date.Format "02/01/2006" }}
+                {{ if .Params.categories }}
+                • {{ delimit .Params.categories ", " }}
+                {{ end }}
+            </div>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            {{ if .Summary }}
+            <p style="color: #6b7280; margin: 12px 0;">{{ .Summary | truncate 150 }}</p>
             {{ end }}
-        </div>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        {{ if .Params.tags }}
-        <div class="tags">
-            {{ range .Params.tags }}
-            <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ if .Params.tags }}
+            <div class="tags">
+                {{ range first 3 .Params.tags }}
+                <a href="/blog/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
             {{ end }}
-        </div>
+        </li>
         {{ end }}
-    </li>
-    {{ end }}
-</ul>
+    </ul>
+    
+    <div style="text-align: center; margin-top: 48px;">
+        <a href="/blog/posts/" style="display: inline-block; color: #2563eb; font-weight: 600; font-size: 1.125rem; text-decoration: none; padding: 12px 32px; border: 2px solid #2563eb; border-radius: 8px; transition: all 0.2s;">
+            Xem tất cả bài viết →
+        </a>
+    </div>
+</section>
 {{ end }}
