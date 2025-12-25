@@ -31,4 +31,3 @@ theme = "minimalist"
   [markup.highlight]
     style = "monokai"
     lineNos = true
-        uses: actions/deploy-pages@v4
