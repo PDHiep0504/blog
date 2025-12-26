@@ -779,21 +779,23 @@
             position: relative;
             display: block;
             overflow: hidden;
+            padding-bottom: 56%;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+        }
+
+        [data-theme="dark"] .post-card-media {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
 
         .post-card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.25s ease;
             display: block;
-        }
-        
-        .post-card-media {
-            position: relative;
-            display: block;
-            overflow: hidden;
-            padding-bottom: 62%;
         }
         
         .post-card-media img {
@@ -802,7 +804,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .post-card-image--placeholder {
@@ -1611,28 +1613,18 @@
                                 <div class="nav-dropdown">
                                     <div class="nav-dropdown-grid">
                                         <a class="nav-dropdown-item" href="/blog/posts/">
-                                            <span class="nav-dropdown-icon">�</span>
-                                            <span>All Posts</span>
+                                            <span class="nav-dropdown-icon">📚</span>
+                                            <span>All posts</span>
                                         </a>
+
                                         <a class="nav-dropdown-item" href="/blog/categories/java/">
                                             <span class="nav-dropdown-icon">☕</span>
                                             <span>Java</span>
                                         </a>
-                                        <a class="nav-dropdown-item" href="/blog/tags/oop/">
-                                            <span class="nav-dropdown-icon">📦</span>
-                                            <span>OOP</span>
-                                        </a>
+
                                         <a class="nav-dropdown-item" href="/blog/categories/javascript/">
                                             <span class="nav-dropdown-icon">⚡</span>
                                             <span>JavaScript</span>
-                                        </a>
-                                        <a class="nav-dropdown-item" href="/blog/tags/multithreading/">
-                                            <span class="nav-dropdown-icon">🔄</span>
-                                            <span>Multithreading</span>
-                                        </a>
-                                        <a class="nav-dropdown-item" href="/blog/tags/dom/">
-                                            <span class="nav-dropdown-icon">📋</span>
-                                            <span>General</span>
                                         </a>
                                     </div>
                                 </div>

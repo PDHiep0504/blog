@@ -1,7 +1,7 @@
 ---
 title: "Java Collections Framework - ArrayList, LinkedList, HashMap"
 date: 2025-12-18
-draft: true
+draft: false
 url: "/posts/java-collections-framework-legacy/"
 tags: ["Java", "Collections", "Data Structures"]
 categories: ["Java"]
