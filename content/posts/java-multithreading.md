@@ -4,11 +4,47 @@ date: 2025-12-17
 draft: false
 tags: ["Java", "Multithreading", "Concurrency"]
 categories: ["Java"]
+description: "Tóm tắt các khái niệm concurrency và parallelism, Java Memory Model, vấn đề race condition cùng các công cụ như synchronized, volatile và java.util.concurrent để viết code đa luồng an toàn."
+image: "images/posts/java-multithreading.jpg"
 ---
 
 # Lập trình đa luồng trong Java
 
 Multithreading cho phép chương trình thực thi nhiều tác vụ đồng thời, tận dụng tối đa sức mạnh của CPU.
+
+## Lý thuyết: Concurrency, Parallelism và Thread-safety
+
+### Concurrency vs Parallelism
+
+- **Concurrency**: nhiều tác vụ cùng “được tiến hành” (đan xen thời gian), có thể trên 1 core.
+- **Parallelism**: nhiều tác vụ chạy *đồng thời thật* trên nhiều core.
+
+Trong Java, bạn viết code theo hướng concurrency; việc có parallelism hay không phụ thuộc CPU và scheduler.
+
+### Ba vấn đề cốt lõi khi nhiều thread cùng truy cập dữ liệu
+
+1) **Atomicity**: một thao tác có “trọn vẹn” không? Ví dụ `count++` không atomic.
+2) **Visibility**: thread A cập nhật biến, thread B có nhìn thấy ngay không?
+3) **Ordering**: trình biên dịch/CPU có thể reorder lệnh để tối ưu.
+
+Ba vấn đề này được mô tả trong **Java Memory Model (JMM)**.
+
+### happens-before (ý nghĩa thực dụng)
+
+Nếu A *happens-before* B, mọi ghi của A sẽ “nhìn thấy” ở B. Một vài cách tạo quan hệ happens-before:
+
+- `synchronized` (lock/unlock)
+- `volatile` (ghi volatile happens-before đọc volatile)
+- `Thread.start()` và `Thread.join()`
+- Các primitive trong `java.util.concurrent` (Lock, Atomic*, ConcurrentHashMap...)
+
+### Các rủi ro thường gặp
+
+- **Race condition**: kết quả phụ thuộc vào timing.
+- **Deadlock**: 2 lock chờ nhau.
+- **Starvation**: một thread không bao giờ được chạy.
+
+Lời khuyên thực tế: ưu tiên dùng `ExecutorService` + concurrent collections thay vì tự quản lý nhiều `Thread`.
 
 ## Thread là gì?
 

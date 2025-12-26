@@ -4,11 +4,67 @@ date: 2025-12-13
 draft: false
 tags: ["JavaScript", "Async", "Promises", "Async/Await"]
 categories: ["JavaScript"]
+description: "Làm rõ cơ chế bất đồng bộ trong JavaScript với Event Loop, Promise và async/await, kèm ví dụ xử lý chuỗi tác vụ và bắt lỗi thực tế."
+image: "images/posts/javascript-async-await.jpg"
 ---
 
 # Lập trình bất đồng bộ trong JavaScript
 
 JavaScript là single-threaded, nhưng có thể xử lý nhiều tác vụ bất đồng bộ nhờ Event Loop. Hãy cùng tìm hiểu!
+
+## Lý thuyết: Event Loop, Task Queue và Microtask
+
+### Vì sao JS single-threaded vẫn làm được nhiều việc?
+
+JS chạy code trên **Call Stack** (một luồng). Các việc “chờ” như I/O, timer, network thường do môi trường (Browser/Node.js) xử lý. Khi xong, môi trường sẽ **xếp callback** vào hàng đợi để JS xử lý sau.
+
+### Macro-task vs Microtask (cực quan trọng khi debug thứ tự chạy)
+
+- **Macro-task**: `setTimeout`, `setInterval`, I/O callback...
+- **Microtask**: `Promise.then/catch/finally`, `queueMicrotask`, (trong browser còn có MutationObserver)
+
+Quy tắc tổng quát:
+
+1) Chạy hết code hiện tại trên call stack
+2) Xử lý *toàn bộ microtask queue*
+3) Mới lấy tiếp macro-task
+
+Ví dụ thứ tự:
+
+```javascript
+console.log('A');
+
+setTimeout(() => console.log('timeout'), 0);
+
+Promise.resolve()
+    .then(() => console.log('promise'));
+
+console.log('B');
+
+// Output thường là: A, B, promise, timeout
+```
+
+### Promise là gì (so với callback)?
+
+Promise biểu diễn một kết quả sẽ có trong tương lai, với 3 trạng thái:
+
+- `pending` → `fulfilled` (resolve)
+- `pending` → `rejected` (reject)
+
+Ưu điểm lớn: tránh “lồng nhiều tầng” (callback hell), dễ chain, dễ gom xử lý lỗi.
+
+### Async/Await thực chất là gì?
+
+`async/await` là cú pháp giúp viết Promise theo kiểu “trông giống sync”.
+
+- `async function` luôn trả về Promise.
+- `await` tạm “dừng” trong function đó, nhường quyền cho event loop, và resume khi Promise hoàn thành.
+
+### Những lỗi hay gặp
+
+- Quên `await` → bạn nhận về Promise thay vì dữ liệu.
+- Dùng `await` tuần tự khi có thể chạy song song → chậm.
+- Không handle lỗi (thiếu `try/catch` hoặc `.catch`).
 
 ## Callback Functions
 

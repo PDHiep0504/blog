@@ -1,6 +1,6 @@
 baseURL = "https://PDHiep0504.github.io/blog/"
 languageCode = "vi-VN"
-title = "Blog Lập Trình - Programming Blog"
+title = "HiT Blog"
 theme = "minimalist"
 
 [params]
@@ -18,16 +18,28 @@ theme = "minimalist"
   [[menu.main]]
     identifier = "blog"
     name = "Blog"
-    url = "/posts/"
+    url = "/categories/"
     weight = 2
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "certificates"
+    name = "Certificates"
+    url = "/certificates/"
+    weight = 4
   
   [[menu.main]]
     identifier = "about"
-    name = "Giới thiệu"
+    name = "About"
     url = "/about/"
-    weight = 3
+    weight = 5
 
 [markup]
   [markup.highlight]
     style = "monokai"
-    lineNos = true
+    lineNos = false

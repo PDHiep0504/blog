@@ -1,14 +1,34 @@
 ---
 title: "Java Collections Framework - ArrayList, LinkedList, HashMap"
 date: 2025-12-18
-draft: false
+draft: true
+url: "/posts/java-collections-framework-legacy/"
 tags: ["Java", "Collections", "Data Structures"]
 categories: ["Java"]
+description: "Tổng quan nhanh về Java Collections Framework, khác biệt giữa List, Set, Queue và Map, cách chọn cấu trúc dữ liệu phù hợp và phân tích ưu nhược điểm của từng loại."
+image: "images/posts/java-collections-framework.jpg"
 ---
 
 # Java Collections Framework
 
 Collections Framework là một trong những phần quan trọng nhất của Java, cung cấp các cấu trúc dữ liệu và thuật toán phổ biến.
+
+## Lý thuyết nhanh: vì sao cần Collections Framework?
+
+Nếu chỉ dùng mảng (`T[]`) bạn sẽ gặp nhiều giới hạn: kích thước cố định, thiếu API thao tác (sort, search, remove...) và khó thay đổi cấu trúc dữ liệu về sau.
+
+JCF giải quyết bằng cách chuẩn hoá các interface chính:
+
+- `List`: có thứ tự, cho phép trùng
+- `Set`: không cho phép trùng
+- `Queue/Deque`: hàng đợi/ngăn xếp theo ngữ nghĩa
+- `Map`: key → value (không thuộc `Collection`, nhưng là “họ hàng” quan trọng)
+
+Khi chọn collection, hãy luôn nghĩ về 3 câu hỏi:
+
+1) Có cần thứ tự không?
+2) Có cần trùng lặp không?
+3) Cần tra cứu theo key hay theo index?
 
 ## List Interface
 

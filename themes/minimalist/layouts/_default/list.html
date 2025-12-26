@@ -1,27 +1,58 @@
 {{ define "main" }}
 <div class="content">
+    {{ if .Content }}
+    <div class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+    </div>
     {{ .Content }}
-</div>
-
-<h2>Tất cả bài viết</h2>
-<ul class="posts-list">
-    {{ range .Pages }}
-    <li class="post-item">
-        <div class="post-meta">
-            {{ .Date.Format "02/01/2006" }}
-            {{ if .Params.categories }}
-            • {{ delimit .Params.categories ", " }}
-            {{ end }}
-        </div>
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{ if .Params.tags }}
-        <div class="tags">
-            {{ range .Params.tags }}
-            <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
-            {{ end }}
-        </div>
+    {{ else }}
+    <div class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ if eq .Kind "section" }}
+        <p class="page-subtitle">Tổng hợp tất cả bài viết trong mục này.</p>
+        {{ else if eq .Kind "taxonomy" }}
+        <p class="page-subtitle">Các bài viết theo danh mục "{{ .Title }}".</p>
+        {{ else if eq .Kind "term" }}
+        <p class="page-subtitle">Các bài viết có nhãn "{{ .Title }}".</p>
         {{ end }}
-    </li>
+    </div>
     {{ end }}
-</ul>
+
+    <div class="post-cards-grid">
+        {{ range .Pages }}
+        <article class="post-card">
+            <a href="{{ .RelPermalink }}" class="post-card-media">
+                {{ with .Params.image }}
+                <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="post-card-image">
+                {{ else }}
+                <div class="post-card-image post-card-image--placeholder"></div>
+                {{ end }}
+                {{ with index .Params.categories 0 }}
+                <span class="post-card-pill">{{ . }}</span>
+                {{ end }}
+            </a>
+
+            <div class="post-card-body">
+                <div class="post-card-meta">
+                    <span>{{ .Date.Format "02 Tháng 01, 2006" }}</span>
+                </div>
+
+                <h2 class="post-card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+
+                {{ $desc := "" }}
+                {{ with .Params.description }}
+                    {{ $desc = . }}
+                {{ else }}
+                    {{ $desc = ( .Summary | plainify ) }}
+                {{ end }}
+                {{ if $desc }}
+                <p class="post-card-excerpt">{{ $desc | truncate 180 }}</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ end }}
+    </div>
+</div>
 {{ end }}

@@ -4,11 +4,61 @@ date: 2025-12-15
 draft: false
 tags: ["JavaScript", "Cơ bản", "ES6"]
 categories: ["JavaScript"]
+description: "Giải thích các khái niệm nền tảng JavaScript như biến, kiểu dữ liệu, toán tử, hoisting, scope và ép kiểu để bạn viết code ít lỗi hơn."
+image: "images/posts/javascript-basics.jpg"
 ---
 
 # JavaScript cơ bản - Nền tảng lập trình web
 
 JavaScript là ngôn ngữ lập trình phổ biến nhất cho web development. Hãy cùng tìm hiểu các khái niệm cơ bản!
+
+## Lý thuyết nền tảng (đọc trước khi code)
+
+### JavaScript chạy như thế nào?
+
+JS là ngôn ngữ **interpreted/JIT**: engine (V8, SpiderMonkey...) parse code, tối ưu và thực thi. Thứ tự chạy phụ thuộc vào call stack và scope.
+
+### Scope: global / function / block
+
+- `var`: **function scope** và có hoisting.
+- `let/const`: **block scope** (trong `{}`), có hoisting nhưng nằm trong **temporal dead zone** (không dùng được trước khi khai báo).
+
+### Hoisting (giải thích ngắn)
+
+Hoisting là hành vi “đưa phần khai báo lên trước” trong giai đoạn compile. Vì thế:
+
+- Function declaration gọi trước vẫn được.
+- `var` có thể truy cập trước nhưng giá trị là `undefined`.
+- `let/const` truy cập trước sẽ lỗi.
+
+### Type coercion và falsy/truthy
+
+JS có ép kiểu ngầm (coercion), nên `==` đôi khi cho kết quả gây bất ngờ.
+
+- Nên dùng `===` và `!==`.
+- Falsy phổ biến: `false`, `0`, `""`, `null`, `undefined`, `NaN`.
+
+Ví dụ:
+
+```javascript
+console.log(0 == false);   // true
+console.log(0 === false);  // false
+
+console.log('' || 'fallback'); // 'fallback'
+console.log(0 ?? 10);          // 0 (null/undefined mới fallback)
+```
+
+### Primitive vs Reference (tại sao object dễ “bị mutate”)
+
+- Primitive (string, number, boolean, null, undefined, symbol, bigint) thường “copy-by-value”.
+- Object/Array/Function là reference: nhiều biến có thể trỏ cùng một object.
+
+```javascript
+const a = { x: 1 };
+const b = a;
+b.x = 2;
+console.log(a.x); // 2
+```
 
 ## Khai báo biến
 

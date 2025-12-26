@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 34px/1.2 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #111827; }
+      .sub { font: 500 18px/1.4 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #6b7280; }
+      .colTitle { font: 800 22px/1.2 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #1f2937; }
+      .card { fill: #f9fafb; stroke: #e5e7eb; stroke-width: 2; rx: 16; }
+      .label { font: 700 16px/1.2 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #1e40af; }
+      .text { font: 500 16px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #6b7280; }
+      .accent { fill: #dbeafe; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="520"/>
+
+  <text class="title" x="48" y="72">ArrayList vs LinkedList — chọn nhanh</text>
+  <text class="sub" x="48" y="104">Đa số case: ArrayList. LinkedList chỉ hợp khi bạn thao tác ở đầu/cuối rất nhiều.</text>
+
+  <text class="colTitle" x="48" y="162">ArrayList</text>
+  <rect class="card" x="48" y="184" width="530" height="286" rx="16"/>
+  <rect class="accent" x="78" y="214" width="160" height="32" rx="999"/>
+  <text class="label" x="96" y="236">Tối ưu cho</text>
+  <text class="text" x="78" y="270">• Truy cập theo index (get/set)</text>
+  <text class="text" x="78" y="300">• Duyệt liên tục (iteration)</text>
+  <text class="text" x="78" y="330">• Append cuối danh sách</text>
+  <text class="text" x="78" y="372">Độ phức tạp (thường gặp):</text>
+  <text class="text" x="78" y="402">• get(i): O(1)  • addLast: O(1) amortized</text>
+  <text class="text" x="78" y="432">• add/remove giữa: O(n)</text>
+
+  <text class="colTitle" x="622" y="162">LinkedList</text>
+  <rect class="card" x="622" y="184" width="530" height="286" rx="16"/>
+  <rect class="accent" x="652" y="214" width="160" height="32" rx="999"/>
+  <text class="label" x="670" y="236">Tối ưu cho</text>
+  <text class="text" x="652" y="270">• Thêm/xoá ở đầu/cuối (deque)</text>
+  <text class="text" x="652" y="300">• Làm Queue/Stack đơn giản</text>
+  <text class="text" x="652" y="342">Độ phức tạp (thường gặp):</text>
+  <text class="text" x="652" y="372">• addFirst/removeFirst: O(1)</text>
+  <text class="text" x="652" y="402">• get(i): O(n) (phải duyệt)</text>
+  <text class="text" x="652" y="432">• tốn bộ nhớ hơn (node + pointer)</text>
+</svg>

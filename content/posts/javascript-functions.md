@@ -4,11 +4,62 @@ date: 2025-12-14
 draft: false
 tags: ["JavaScript", "Functions", "ES6", "Functional Programming"]
 categories: ["JavaScript"]
+description: "Tóm tắt cách định nghĩa và sử dụng function trong JavaScript, từ function declaration/expression đến arrow function, higher-order function, closure và quy tắc this."
+image: "images/posts/javascript-functions.jpg"
 ---
-
 # JavaScript Functions - Từ cơ bản đến nâng cao
 
 Functions là building blocks của JavaScript. Hãy cùng khám phá các cách định nghĩa và sử dụng functions!
+
+## Lý thuyết nền tảng
+
+### Function là “first-class citizen”
+
+Trong JavaScript, function là một giá trị: bạn có thể gán vào biến, truyền làm tham số, return từ function khác. Vì vậy mới có các khái niệm như callback, higher-order functions.
+
+### Execution context, scope và closure
+
+- **Scope** (phạm vi): nơi một biến “có thể được truy cập”. JavaScript có `global scope`, `function scope`, và `block scope` (với `let/const`).
+- **Closure**: một function “nhớ” được các biến ở scope bên ngoài tại thời điểm nó được tạo.
+
+Ví dụ closure (rất hay gặp trong UI/event):
+
+```javascript
+function makeCounter() {
+    let count = 0;
+    return function () {
+        count += 1;
+        return count;
+    };
+}
+
+const c = makeCounter();
+console.log(c()); // 1
+console.log(c()); // 2
+```
+
+### Hoisting và sự khác nhau giữa declaration/expression
+
+- **Function declaration** được hoist cả “phần định nghĩa”, nên có thể gọi trước khi khai báo.
+- **Function expression** (gán vào biến) tuỳ thuộc vào biến đó (`const/let/var`) nên không thể gọi trước.
+
+### Quy tắc `this` (nên nắm trước khi dùng arrow)
+
+`this` trong JavaScript không “dính chặt” vào function — nó phụ thuộc vào cách bạn gọi function.
+
+Các quy tắc hay gặp:
+
+- Gọi dạng method: `obj.method()` thì `this === obj`.
+- Gọi “thẳng” `fn()` (không strict mode) thường trỏ global; trong strict mode là `undefined`.
+- `call/apply/bind` có thể gán `this` thủ công.
+- **Arrow function không có `this` riêng**; nó “kế thừa” `this` từ scope cha.
+
+### Pure function và side effects
+
+- **Pure function**: cùng input → luôn ra cùng output, không làm thay đổi state bên ngoài.
+- **Side effect**: ghi log, gọi API, mutate object truyền vào, cập nhật DOM...
+
+Viết theo hướng pure function giúp code dễ test và dễ debug hơn.
 
 ## Các cách định nghĩa Function
 

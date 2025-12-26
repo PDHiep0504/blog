@@ -4,11 +4,57 @@ date: 2025-12-16
 draft: false
 tags: ["Java", "Socket", "Network Programming", "TCP/IP"]
 categories: ["Java"]
+description: "Giải thích nền tảng TCP/IP, message framing và mô hình client server, sau đó hướng dẫn xây dựng ứng dụng Socket đơn giản gửi nhận dữ liệu trong Java."
+image: "images/posts/java-socket-programming.jpg"
 ---
 
 # Lập trình Socket với Java
 
 Socket programming là nền tảng của lập trình mạng, cho phép các ứng dụng giao tiếp qua mạng sử dụng giao thức TCP/IP.
+
+## Lý thuyết: TCP/IP và giao tiếp client-server
+
+### TCP đảm bảo gì?
+
+TCP là giao thức hướng kết nối, cung cấp:
+
+- **Reliable**: đảm bảo dữ liệu đến nơi (retransmit khi mất gói)
+- **In-order**: dữ liệu đến theo đúng thứ tự
+- **Stream-based**: TCP là *luồng byte*, không phải “gói tin message”
+
+Điểm “stream-based” rất quan trọng: nếu bạn `write("Hello")` rồi `write("World")`, phía nhận có thể đọc được `HelloWorld` trong một lần, hoặc tách ra nhiều lần đọc. Vì vậy cần **message framing**.
+
+### Message framing là gì?
+
+Một số cách phổ biến:
+
+- Kết thúc bằng ký tự newline (\n) → dễ demo với `BufferedReader.readLine()`
+- Gửi kèm độ dài (length-prefix) → ổn định hơn cho binary/protocol
+- Delimiter riêng hoặc protocol dạng HTTP
+
+Trong các ví dụ phía dưới, ta dùng newline để đơn giản.
+
+### Port và địa chỉ
+
+- IP xác định máy (host).
+- Port xác định “dịch vụ” trên máy.
+- `ServerSocket(port)` lắng nghe port; client `new Socket(host, port)` kết nối.
+
+### Blocking I/O và timeout
+
+Các lệnh `accept()`, `readLine()`, `read()` thường là **blocking**: nếu không có dữ liệu, thread sẽ chờ.
+
+Thực tế nên cân nhắc timeout để tránh treo vô hạn:
+
+```java
+socket.setSoTimeout(5000); // 5s
+```
+
+### Mô hình xử lý nhiều client
+
+- Thread-per-connection (dễ hiểu, hợp demo)
+- Thread pool (tốt hơn)
+- NIO/Selector (khi cần scale cao)
 
 ## Socket là gì?
 

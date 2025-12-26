@@ -1,24 +1,90 @@
-{{ define "main" }}
-<div class="content">
-    {{ .Content }}
-</div>
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
 
+{{ define "main" }}
 {{ if eq .Section "posts" }}
-<h2>Bài viết mới nhất</h2>
-<ul class="posts-list">
-    {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
-    <li class="post-item">
-        <div class="post-meta">{{ .Date.Format "02/01/2006" }}</div>
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{ if .Params.tags }}
-        <div class="tags">
-            {{ range .Params.tags }}
-            <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">{{ .Title }}</h1>
+        <div class="post-meta-line">
+            {{ with .Params.categories }}
+                Filed under
+                {{ range $i, $c := . }}
+                    {{ if gt $i 0 }}, {{ end }}
+                    <a href="{{ (printf "categories/%s/" ($c | urlize)) | relURL }}">{{ $c }}</a>
+                {{ end }}
+                on {{ $.Date.Format "January 2, 2006" }}.
+            {{ else }}
+                Published on {{ .Date.Format "January 2, 2006" }}.
+            {{ end }}
+            {{ if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+                Last updated on {{ .Lastmod.Format "January 2, 2006" }}.
             {{ end }}
         </div>
+    </header>
+
+    <div class="post-layout">
+        <div class="post-body content" id="postBody">
+            {{ .Content }}
+        </div>
+
+        {{ if gt (len .Fragments.Headings) 0 }}
+        <aside class="post-toc" aria-label="Table of contents">
+            <div class="post-toc-inner">
+                <div class="post-toc-title">TABLE OF CONTENTS</div>
+                {{ .TableOfContents }}
+            </div>
+        </aside>
         {{ end }}
-    </li>
-    {{ end }}
-</ul>
+    </div>
+</article>
+
+<script>
+    (function () {
+        var toc = document.getElementById('TableOfContents');
+        var body = document.getElementById('postBody');
+        if (!toc || !body) return;
+
+        var links = Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]'));
+        if (!links.length) return;
+
+        var headingSelector = 'h2[id], h3[id], h4[id]';
+        var headings = Array.prototype.slice.call(body.querySelectorAll(headingSelector));
+        if (!headings.length) return;
+
+        var linkById = new Map();
+        links.forEach(function (a) {
+            var id = (a.getAttribute('href') || '').slice(1);
+            if (id) linkById.set(id, a);
+        });
+
+        function setActive(id) {
+            links.forEach(function (a) { a.classList.remove('toc-active'); });
+            var active = linkById.get(id);
+            if (active) active.classList.add('toc-active');
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                setActive(entry.target.id);
+            });
+        }, { root: null, rootMargin: '0px 0px -70% 0px', threshold: 0.1 });
+
+        headings.forEach(function (h) { observer.observe(h); });
+
+        // Set initial state
+        setActive(headings[0].id);
+    })();
+</script>
+{{ else }}
+<article class="page">
+    <header class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+    </header>
+
+    <div class="content page-content">
+        {{ .Content }}
+    </div>
+</article>
 {{ end }}
 {{ end }}

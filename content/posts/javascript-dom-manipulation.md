@@ -4,11 +4,58 @@ date: 2025-12-12
 draft: false
 tags: ["JavaScript", "DOM", "Web Development", "Frontend"]
 categories: ["JavaScript"]
+description: "Hướng dẫn cách chọn, tạo, chỉnh sửa và xoá element bằng JavaScript, lắng nghe event và tối ưu hiệu năng khi thao tác DOM trên trang web."
+image: "images/posts/javascript-dom-manipulation.jpg"
 ---
 
 # DOM Manipulation với JavaScript
 
 DOM (Document Object Model) là cách JavaScript tương tác với HTML. Hãy cùng học cách thao tác với trang web!
+
+## Lý thuyết: DOM, Render Tree và Event
+
+### DOM khác gì HTML?
+
+- **HTML** là văn bản markup.
+- **DOM** là cấu trúc đối tượng (tree) được browser tạo ra sau khi parse HTML.
+
+Nên nhớ: DOM có thể thay đổi trong runtime (bạn add/remove element), còn HTML source ban đầu thì không tự đổi.
+
+### Render pipeline (vì sao DOM thao tác nhiều sẽ chậm)
+
+Thông thường browser đi theo chuỗi:
+
+1) Parse HTML → DOM
+2) Parse CSS → CSSOM
+3) Combine → Render Tree
+4) Layout (tính toán vị trí/kích thước)
+5) Paint/Composite
+
+Một số thao tác DOM/CSS có thể kích hoạt **reflow/layout** (đắt). Vì vậy nên:
+
+- Gom nhiều thay đổi vào một lần (batch)
+- Tránh đọc layout (`offsetWidth`, `getBoundingClientRect`) xen kẽ với ghi style liên tục
+
+### Live collection vs static collection
+
+- `getElementsByClassName/getElementsByTagName` trả về **HTMLCollection** (thường là live).
+- `querySelectorAll` trả về **NodeList** (thường là static snapshot).
+
+Khi bạn mutate DOM, live collection có thể thay đổi theo, dễ gây bug nếu đang loop.
+
+### Event propagation: capture → target → bubble
+
+Event trong browser thường đi qua 3 pha:
+
+- Capture (từ ngoài vào trong)
+- Target
+- Bubble (từ trong ra ngoài)
+
+Điều này dẫn tới kỹ thuật **event delegation**: gắn 1 listener ở container thay vì gắn cho từng item.
+
+### innerHTML và rủi ro XSS
+
+`innerHTML` tiện, nhưng nếu nhét dữ liệu user vào mà không sanitize sẽ có nguy cơ XSS. Khi chỉ cần text, ưu tiên `textContent`.
 
 ## DOM là gì?
 

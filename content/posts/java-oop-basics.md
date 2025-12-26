@@ -4,11 +4,45 @@ date: 2025-12-20
 draft: false
 tags: ["Java", "OOP", "Lập trình cơ bản"]
 categories: ["Java"]
+description: "Giới thiệu toàn diện về OOP trong Java với class, object, kế thừa, interface, abstract class, composition cùng các nguyên tắc giúp thiết kế code dễ bảo trì."
+image: "images/posts/java-oop-basics.jpg"
 ---
 
 # Lập trình hướng đối tượng trong Java
 
 Lập trình hướng đối tượng (Object-Oriented Programming - OOP) là một paradigm lập trình quan trọng trong Java. Hãy cùng tìm hiểu các khái niệm cơ bản!
+
+## Lý thuyết nền tảng về OOP trong Java
+
+### Object và Class
+
+- **Class** là “bản thiết kế” (blueprint): định nghĩa dữ liệu (field) và hành vi (method).
+- **Object** là instance cụ thể được tạo từ class (`new`).
+
+Trong thực tế, OOP giúp bạn mô hình hoá bài toán theo *đối tượng* thay vì chỉ theo hàm và dữ liệu rời rạc.
+
+### Interface, abstract class và class thường
+
+- **Interface**: mô tả “hợp đồng” (contract) – những method mà một class phải có. Hay dùng để decouple (phụ thuộc vào abstraction).
+- **Abstract class**: vừa có thể có method abstract, vừa có thể chứa logic dùng chung/field. Dùng khi các class con có “phần chung” rõ ràng.
+- **Concrete class**: triển khai đầy đủ.
+
+Không có lựa chọn đúng tuyệt đối: interface tốt cho “vai trò”, abstract class tốt cho “có code dùng chung”.
+
+### Composition vs Inheritance (ưu tiên composition khi có thể)
+
+Inheritance giúp tái sử dụng, nhưng cũng dễ làm class bị “cứng” và khó mở rộng (tight coupling). Trong nhiều trường hợp, **composition** (has-a) linh hoạt hơn **inheritance** (is-a).
+
+Ví dụ tư duy:
+
+- `Car has-a Engine` (composition)
+- `Student is-a Person` (inheritance)
+
+### Một vài nguyên tắc giúp OOP “đúng nghĩa”
+
+- **SRP** (Single Responsibility): mỗi class có 1 lý do để thay đổi.
+- **Encapsulation**: che giấu state, public API nhỏ gọn.
+- Tránh lộ “setter everywhere” nếu không cần; cân nhắc immutability khi phù hợp.
 
 ## 4 Trụ cột của OOP
 

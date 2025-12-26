@@ -4,11 +4,57 @@ date: 2025-12-19
 draft: false
 tags: ["Java", "Exception", "Error Handling"]
 categories: ["Java"]
+description: "Hướng dẫn phân biệt Error và Exception, checked và unchecked, sử dụng try catch finally, throws và tự định nghĩa exception để xử lý lỗi an toàn hơn."
+image: "images/posts/java-exception-handling.jpg"
 ---
 
 # Xử lý ngoại lệ trong Java
 
 Xử lý ngoại lệ (Exception Handling) là một phần quan trọng trong lập trình Java, giúp chương trình xử lý các lỗi một cách an toàn.
+
+## Lý thuyết: Exception là gì và cơ chế hoạt động
+
+### Exception vs Error
+
+Trong Java, mọi “thứ có thể ném” đều là `Throwable`:
+
+- `Error`: lỗi nghiêm trọng của JVM/hệ thống (OutOfMemoryError...), thường **không nên** bắt để “cứu” chương trình.
+- `Exception`: các tình huống bất thường mà chương trình **có thể** xử lý/khôi phục.
+
+Sơ đồ đơn giản:
+
+```
+Throwable
+ ├─ Error
+ └─ Exception
+     ├─ RuntimeException (unchecked)
+     └─ (các checked exception)
+```
+
+### Propagation: ném và lan truyền lỗi
+
+Khi một exception bị ném (throw) và không được catch ở method hiện tại, nó sẽ **lan lên call stack** cho đến khi:
+
+- gặp một `catch` phù hợp, hoặc
+- đi đến `main`/thread boundary và làm thread kết thúc.
+
+Vì vậy, “bắt ở đâu” là quyết định thiết kế: bắt quá sớm dễ che giấu lỗi; bắt quá muộn dễ crash.
+
+### Checked vs Unchecked: dùng khi nào?
+
+- **Checked**: buộc caller phải xử lý. Dùng tốt cho case mà caller *thực sự có thể* xử lý/khôi phục (ví dụ: đọc file, network).
+- **Unchecked (RuntimeException)**: thường dùng cho lỗi do logic/vi phạm precondition (null sai, index sai, argument sai).
+
+Nguyên tắc thực tế:
+
+- Nếu caller không có cách xử lý hợp lý → đừng “ép” checked exception.
+- Nếu lỗi là “do programmer” → ưu tiên unchecked.
+
+### Anti-pattern cần tránh
+
+- Bắt `Exception` rồi bỏ qua (swallow) → rất khó debug.
+- `e.printStackTrace()` trong production mà không log đúng cách.
+- Throw exception chỉ để điều hướng flow thông thường.
 
 ## Phân loại Exception
 

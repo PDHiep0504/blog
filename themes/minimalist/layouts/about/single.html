@@ -1,0 +1,40 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<article class="page about-page">
+    <section class="about-hero">
+        <div class="about-hero-grid">
+            <div class="about-hero-copy">
+                <h1 class="about-hero-title">{{ .Params.heroHeading | default .Title }}</h1>
+                {{ with .Params.heroKicker }}
+                    <div class="about-hero-kicker">{{ . }}</div>
+                {{ end }}
+                <div class="about-hero-text">
+                    {{ with .Params.heroTextLines }}
+                        {{ range . }}
+                            <p>{{ . }}</p>
+                        {{ end }}
+                    {{ else }}
+                        {{ with .Params.heroText }}{{ . | markdownify }}{{ end }}
+                    {{ end }}
+                </div>
+            </div>
+
+            <div class="about-hero-media">
+                {{ with .Params.heroImage }}
+                    {{ $img := $.Resources.GetMatch . }}
+                    {{ if $img }}
+                        <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+                    {{ else }}
+                        <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <div class="content page-content">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}
