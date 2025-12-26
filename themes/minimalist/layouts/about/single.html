@@ -1,6 +1,7 @@
 {{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/about.css" | relURL }}">
 <article class="page about-page">
     <section class="about-hero">
         <div class="about-hero-grid">
@@ -18,15 +19,22 @@
                         {{ with .Params.heroText }}{{ . | markdownify }}{{ end }}
                     {{ end }}
                 </div>
+                {{ with .Params.social }}
+                    <div class="about-social">
+                        {{ with .github }}<a class="social-link github" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+                        {{ with .linkedin }}<a class="social-link linkedin" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+                        {{ with .email }}<a class="social-link email" href="mailto:{{ . }}">Email</a>{{ end }}
+                    </div>
+                {{ end }}
             </div>
 
             <div class="about-hero-media">
                 {{ with .Params.heroImage }}
                     {{ $img := $.Resources.GetMatch . }}
                     {{ if $img }}
-                        <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+                        <figure class="profile-figure"><img class="profile-photo" src="{{ $img.RelPermalink }}" alt="{{ $.Title }}" loading="lazy"></figure>
                     {{ else }}
-                        <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+                        <figure class="profile-figure"><img class="profile-photo" src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy"></figure>
                     {{ end }}
                 {{ end }}
             </div>
