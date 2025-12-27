@@ -18,6 +18,8 @@
     </div>
     {{ end }}
 
+    {{/* Ẩn post-cards-grid ở trang chủ (home) */}}
+    {{ if not .IsHome }}
     <div class="post-cards-grid">
         {{ range .Pages }}
         <article class="post-card">
@@ -54,5 +56,6 @@
         </article>
         {{ end }}
     </div>
+    {{ end }}
 </div>
 {{ end }}

@@ -8,9 +8,10 @@ Nội dung Certificates và các chứng chỉ đã hoàn thành được liệt
 <!-- Certificates grid -->
 <div class="cert-grid">
 
-<a class="cert-card" href="/images/Certificates/I2CSUpdate20251226-33-ge4r05.pdf" target="_blank" rel="noopener">
+
+<a class="cert-card" href="/blog/images/Certificates/I2CSUpdate20251226-33-ge4r05.pdf" target="_blank" rel="noopener">
 	<figure>
-		<img src="/images/Certificates/introduction-to-cybersecurity.png" alt="Introduction to Cybersecurity" />
+		<img src="/blog/images/Certificates/introduction-to-cybersecurity.png" alt="Introduction to Cybersecurity" />
 		<figcaption>
 			<h3>Introduction to Cybersecurity</h3>
 			<p class="meta">Cisco Networking Academy • 2024</p>
@@ -19,9 +20,10 @@ Nội dung Certificates và các chứng chỉ đã hoàn thành được liệt
 	</figure>
 </a>
 
-<a class="cert-card" href="/images/Certificates/JavaScriptEssentials1Update20251226-32-jm74zi.pdf" target="_blank" rel="noopener">
+
+<a class="cert-card" href="/blog/images/Certificates/JavaScriptEssentials1Update20251226-32-jm74zi.pdf" target="_blank" rel="noopener">
 	<figure>
-		<img src="/images/Certificates/javascript-essentials-1.png" alt="JavaScript Essentials 1" />
+		<img src="/blog/images/Certificates/javascript-essentials-1.png" alt="JavaScript Essentials 1" />
 		<figcaption>
 			<h3>JavaScript Essentials 1</h3>
 			<p class="meta">Cisco Networking Academy • 2024</p>
@@ -30,9 +32,10 @@ Nội dung Certificates và các chứng chỉ đã hoàn thành được liệt
 	</figure>
 </a>
 
-<a class="cert-card" href="/images/Certificates/JavaScriptEssentials2Update20251226-33-xe1zzg.pdf" target="_blank" rel="noopener">
+
+<a class="cert-card" href="/blog/images/Certificates/JavaScriptEssentials2Update20251226-33-xe1zzg.pdf" target="_blank" rel="noopener">
 	<figure>
-		<img src="/images/Certificates/javascript-essentials-2.png" alt="JavaScript Essentials 2" />
+		<img src="/blog/images/Certificates/javascript-essentials-2.png" alt="JavaScript Essentials 2" />
 		<figcaption>
 			<h3>JavaScript Essentials 2</h3>
 			<p class="meta">Cisco Networking Academy • 2024</p>
@@ -41,9 +44,10 @@ Nội dung Certificates và các chứng chỉ đã hoàn thành được liệt
 	</figure>
 </a>
 
-<a class="cert-card" href="/images/Certificates/NetworkingBasicsUpdate20251226-33-st4ykl.pdf" target="_blank" rel="noopener">
+
+<a class="cert-card" href="/blog/images/Certificates/NetworkingBasicsUpdate20251226-33-st4ykl.pdf" target="_blank" rel="noopener">
 	<figure>
-		<img src="/images/Certificates/networking-basics.png" alt="Networking Basics" />
+		<img src="/blog/images/Certificates/networking-basics.png" alt="Networking Basics" />
 		<figcaption>
 			<h3>Networking Basics</h3>
 			<p class="meta">Cisco Networking Academy • 2024</p>
