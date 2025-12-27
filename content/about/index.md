@@ -13,12 +13,12 @@ keywords: ["java","javascript","network","backend","frontend"]
 ---
 
 
-Mình là **Phạm Đình Hiệp**, sinh viên năm cuối ngành Công nghệ Thông tin, yêu thích việc xây dựng phần mềm theo hướng rõ ràng, có nền tảng và dễ mở rộng. Mình quan tâm đến cách một hệ thống vận hành từ backend, frontend cho đến các yếu tố hạ tầng và mạng.
+Tôi là **Phạm Đình Hiệp**, sinh viên năm cuối ngành Công nghệ Thông tin, yêu thích việc xây dựng phần mềm theo hướng rõ ràng, có nền tảng và dễ mở rộng. Tôi quan tâm đến cách một hệ thống vận hành từ backend, frontend cho đến các yếu tố hạ tầng và mạng.
 
 ## 📌 Đôi nét về bản thân
 
-Mình bắt đầu tiếp cận lập trình từ những kiến thức cơ bản và từng bước nâng cao thông qua các môn học và dự án thực hành. Trong quá trình học, mình chú trọng việc hiểu bản chất vấn đề, thay vì chỉ làm cho “chạy được”.
-Mình tin rằng code tốt là code dễ đọc, dễ bảo trì và phù hợp với bối cảnh sử dụng.
+Tôi bắt đầu tiếp cận lập trình từ những kiến thức cơ bản và từng bước nâng cao thông qua các môn học và dự án thực hành. Trong quá trình học, Tôi chú trọng việc hiểu bản chất vấn đề, thay vì chỉ làm cho “chạy được”.
+Tôi tin rằng code tốt là code dễ đọc, dễ bảo trì và phù hợp với bối cảnh sử dụng.
 
 ## 🛠️ Kỹ năng & Công nghệ
 
@@ -40,7 +40,7 @@ Mình tin rằng code tốt là code dễ đọc, dễ bảo trì và phù hợp
 
 ## 🎯 Mục tiêu nghề nghiệp
 
-Trong giai đoạn đầu sự nghiệp, mình mong muốn trở thành Backend / Fullstack Developer, có nền tảng vững về Java và JavaScript, hiểu cách hệ thống hoạt động trong môi trường thực tế. Về lâu dài, mình hướng đến việc xây dựng các hệ thống ổn định, có khả năng mở rộng và dễ bảo trì.
+Trong giai đoạn đầu sự nghiệp, Tôi mong muốn trở thành Backend / Fullstack Developer, có nền tảng vững về Java và JavaScript, hiểu cách hệ thống hoạt động trong môi trường thực tế. Về lâu dài, Tôi hướng đến việc xây dựng các hệ thống ổn định, có khả năng mở rộng và dễ bảo trì.
 
 ## ✍️ Tiêu chí của blog
 

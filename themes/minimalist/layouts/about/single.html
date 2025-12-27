@@ -1,7 +1,14 @@
 {{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<link rel="stylesheet" href="{{ "/css/about.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/about.css" | relURL }}">
+<style>
+    /* Inline overrides to ensure dark-mode colors apply */
+    .page.about-page .about-hero { background: transparent !important; }
+    .page.about-page .about-hero-title { color: var(--text-primary) !important; }
+    .page.about-page .about-hero-text p { color: var(--text-secondary) !important; }
+    .page.about-page .about-hero-media img, .page.about-page .about-hero .profile-photo { border-color: var(--bg-primary) !important; }
+</style>
 <article class="page about-page">
     <section class="about-hero">
         <div class="about-hero-grid">

@@ -1,82 +1,106 @@
-/* Simple About page styles for the minimalist theme */
+/* About page styles — dark-mode friendly using theme variables */
 
 .about-hero {
-  padding: 2.5rem 1rem 1.5rem 1rem;
-  background: none;
+  /* Clean hero: transparent background, wider, more breathing space */
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 64px 32px !important;
+  margin: 0 auto 56px auto;
+  max-width: 1200px;
 }
+
 .about-hero-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr; /* text wider, image smaller */
+  gap: 56px;
   align-items: center;
-  max-width: 700px;
-  margin: 0 auto;
-  gap: 1.5rem;
+  margin: 0;
 }
+
 .about-hero-media {
-  margin-bottom: 1rem;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 .profile-figure {
   margin: 0;
-  display: flex;
-  justify-content: center;
+  display: block;
 }
-.profile-photo {
-  width: 160px;
-  height: 160px;
+.about-hero .profile-photo {
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #e5e7eb;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-radius: 6px;
+  border: 0;
+  box-shadow: none;
 }
+.about-hero-media img,
+.about-hero .profile-photo {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+  border: 6px solid var(--bg-primary);
+}
+
 .about-hero-title {
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-weight: 800;
-  margin: 0.5rem 0 0.2rem 0;
-  text-align: center;
-  color: #22223b;
+  margin: 0 0 0.4rem 0;
+  text-align: left;
+  color: var(--text-primary);
+  line-height: 1.04;
 }
 .about-hero-kicker {
-  color: #4b5563;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
-  text-align: center;
-  font-size: 1.1rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .about-hero-text p {
-  margin: 0.4rem 0;
-  color: #374151;
-  text-align: center;
-  font-size: 1.05rem;
+  margin: 0.6rem 0;
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 1.0625rem;
 }
 .about-social {
   margin: 1.2rem 0 0.5rem 0;
   display: flex;
   gap: 0.7rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .about-social .social-link {
   padding: 0.38rem 1.1rem;
   border-radius: 999px;
   text-decoration: none;
-  color: #22223b;
-  background: #f3f4f6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
   font-weight: 600;
   font-size: 1rem;
   transition: background 0.2s;
 }
 .about-social .social-link:hover {
-  background: #e0e7ef;
+  background: rgba(0,0,0,0.04);
 }
-/* Đảm bảo phần nội dung rộng bằng phần hero hoặc rộng hơn */
+
 .content.page-content {
-  max-width: 900px;
-  margin: 2.5rem auto 1.5rem auto;
-  padding: 0 1rem;
-  color: #232946;
-  font-size: 1.08rem;
-  line-height: 1.7;
+  max-width: 1200px;
+  margin: 2.5rem auto 2.5rem auto;
+  padding: 32px 36px;
+  color: var(--text-primary);
+  font-size: 1.06rem;
+  line-height: 1.8;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 .content.page-content h2, .content.page-content h3 {
-  color: #22223b;
+  color: var(--text-primary);
   margin-top: 2.2rem;
   margin-bottom: 1rem;
   font-weight: 700;
@@ -86,36 +110,35 @@
   display: block;
   gap: 0.75rem;
 }
-.skill {
-  margin: 0.6rem 0;
+.skill { margin: 0.6rem 0; }
+.skill-name { font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary); }
+.skill-bar { background: #e6e9ee; border-radius: 999px; height: 12px; overflow: hidden; }
+.skill-bar span { display: block; height: 100%; background: linear-gradient(90deg,#7c3aed,#06b6d4); border-radius: 999px; }
+
+@media (max-width: 992px) {
+  .about-hero-media img, .about-hero .profile-photo { width: 200px; height: 200px; }
+  .about-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .about-hero-title { text-align: center; }
+  .about-hero-kicker, .about-hero-text { text-align: center; }
+  .about-social { justify-content: center; }
 }
-.skill-name {
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-  color: #0f172a;
-}
-.skill-bar {
-  background: #e6e9ee;
-  border-radius: 999px;
-  height: 12px;
-  overflow: hidden;
-}
-.skill-bar span {
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg,#7c3aed,#06b6d4);
-  border-radius: 999px;
-}
+
 @media (max-width: 800px) {
-  .about-hero-grid {
-    max-width: 98vw;
-    padding: 0 0.2rem;
-  }
-  .profile-photo {
-    width: 110px;
-    height: 110px;
-  }
-  .content.page-content {
-    font-size: 1rem;
-  }
+  .about-hero-grid { max-width: 98vw; padding: 0 0.5rem; }
+  .profile-photo { width: 110px; height: 110px; }
+  .content.page-content { font-size: 1rem; padding: 20px; }
 }
+
+/* Page-specific overrides to ensure About page always uses these styles */
+.page.about-page .about-hero {
+  padding: 64px 32px !important;
+  margin: 0 auto 56px auto !important;
+  max-width: 1200px !important;
+}
+.page.about-page .about-hero-grid { grid-template-columns: 2.5fr 1fr !important; gap: 56px !important; }
+.page.about-page .about-hero-title { color: var(--text-primary) !important; }
+.page.about-page .about-hero-kicker, .page.about-page .about-hero-text { color: var(--text-secondary) !important; }
+.page.about-page .about-hero-media img, .page.about-page .about-hero .profile-photo { border: 6px solid var(--bg-primary) !important; }
+
+/* Helpful debug: uncomment to visually confirm this CSS file is loaded */
+/* .page.about-page .about-hero { outline: 3px solid red !important; } */

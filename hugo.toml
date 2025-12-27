@@ -43,3 +43,6 @@ theme = "minimalist"
   [markup.highlight]
     style = "monokai"
     lineNos = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
