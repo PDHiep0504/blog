@@ -1,0 +1,49 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "css/about.css" | relURL }}">
+<style>
+    /* Inline overrides to ensure dark-mode colors apply */
+    .page.about-page .about-hero { background: transparent !important; }
+    .page.about-page .about-hero-title { color: var(--text-primary) !important; }
+    .page.about-page .about-hero-text p { color: var(--text-secondary) !important; }
+    .page.about-page .about-hero-media img, .page.about-page .about-hero .profile-photo { border-color: var(--bg-primary) !important; }
+</style>
+<article class="page about-page">
+    <section class="about-hero">
+        <div class="about-hero-grid">
+            <div class="about-hero-copy">
+                <h1 class="about-hero-title">{{ .Params.heroHeading | default .Title }}</h1>
+                {{ with .Params.heroTextLines }}
+                    <div class="about-hero-text">
+                        {{ range . }}
+                            <p>{{ . }}</p>
+                        {{ end }}
+                    </div>
+                {{ else }}
+                    {{ with .Params.heroText }}
+                        <div class="about-hero-text">{{ . | markdownify }}</div>
+                    {{ end }}
+                {{ end }}
+                {{ with .Params.social }}
+                    <div class="about-social">
+                        {{ with .github }}<a class="social-link github" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+                        {{ with .linkedin }}<a class="social-link linkedin" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+                        {{ with .email }}<a class="social-link email" href="mailto:{{ . }}">Email</a>{{ end }}
+                    </div>
+                {{ end }}
+            </div>
+
+            <div class="about-hero-media">
+                {{ with .Params.heroImage }}
+                    <figure class="profile-figure"><img class="profile-photo" src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy"></figure>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <div class="content page-content">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}
