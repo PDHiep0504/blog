@@ -14,18 +14,17 @@
         <div class="about-hero-grid">
             <div class="about-hero-copy">
                 <h1 class="about-hero-title">{{ .Params.heroHeading | default .Title }}</h1>
-                {{ with .Params.heroKicker }}
-                    <div class="about-hero-kicker">{{ . }}</div>
-                {{ end }}
-                <div class="about-hero-text">
-                    {{ with .Params.heroTextLines }}
+                {{ with .Params.heroTextLines }}
+                    <div class="about-hero-text">
                         {{ range . }}
                             <p>{{ . }}</p>
                         {{ end }}
-                    {{ else }}
-                        {{ with .Params.heroText }}{{ . | markdownify }}{{ end }}
+                    </div>
+                {{ else }}
+                    {{ with .Params.heroText }}
+                        <div class="about-hero-text">{{ . | markdownify }}</div>
                     {{ end }}
-                </div>
+                {{ end }}
                 {{ with .Params.social }}
                     <div class="about-social">
                         {{ with .github }}<a class="social-link github" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
@@ -37,12 +36,7 @@
 
             <div class="about-hero-media">
                 {{ with .Params.heroImage }}
-                    {{ $img := $.Resources.GetMatch . }}
-                    {{ if $img }}
-                        <figure class="profile-figure"><img class="profile-photo" src="{{ $img.RelPermalink }}" alt="{{ $.Title }}" loading="lazy"></figure>
-                    {{ else }}
-                        <figure class="profile-figure"><img class="profile-photo" src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy"></figure>
-                    {{ end }}
+                    <figure class="profile-figure"><img class="profile-photo" src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy"></figure>
                 {{ end }}
             </div>
         </div>
