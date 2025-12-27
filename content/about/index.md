@@ -2,6 +2,7 @@
 title: "About"
 date: 2025-12-25
 draft: false
+type: "about"
 heroHeading: "Xin chào! Tôi là Hiệp."
 heroTextLines:
   - "Tôi bắt đầu học và xây dựng các dự án web từ những kiến thức nền tảng, và duy trì việc học cũng như thực hành trong suốt quá trình học tập."
@@ -11,7 +12,6 @@ heroImage: "/blog/images/about/profile.png"
 description: "Phạm Đình Hiệp — lập trình viên tập trung vào Java, JavaScript và network programming."
 keywords: ["java","javascript","network","backend","frontend"]
 ---
-
 
 Tôi là **Phạm Đình Hiệp**, sinh viên năm cuối ngành Công nghệ Thông tin, yêu thích việc xây dựng phần mềm theo hướng rõ ràng, có nền tảng và dễ mở rộng. Tôi quan tâm đến cách một hệ thống vận hành từ backend, frontend cho đến các yếu tố hạ tầng và mạng.
 
