@@ -1,0 +1,31 @@
+{{ define "main" }}
+  {{ if .Params.heroHeading }}
+    <section class="about-hero">
+      <div class="about-hero-grid">
+        <div>
+          <h1 class="about-hero-title">{{ .Params.heroHeading }}</h1>
+          {{ if .Params.heroTextLines }}
+            <div class="about-hero-text">
+              {{ range .Params.heroTextLines }}
+                <p>{{ . }}</p>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+        {{ if .Params.heroImage }}
+          <div class="about-hero-media">
+            <img src="{{ .Params.heroImage | relURL }}" alt="Profile" />
+          </div>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  <article class="page">
+    <header class="page-header">
+      <h1 class="page-title">{{ .Title }}</h1>
+    </header>
+    <div class="content page-content">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
