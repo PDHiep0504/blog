@@ -1736,6 +1736,59 @@
 <hr style="margin: 0; border: none; border-top: 3px solid #ef4444; border-radius: 2px; width: 100%; max-width: 1000px;" />
 <!-- Main Content Section -->
 <section class="main-content-sections" style="display: flex; gap: 40px; margin: 0 0 56px 0; align-items: flex-start; flex-wrap: wrap; background: #f8fafc; border-radius: 0 0 18px 18px; box-shadow: 0 2px 16px 0 rgba(99,102,241,0.04); padding: 36px 36px 44px 36px; border-top: none;">
+    <style>
+    header .site-title a {
+        font-size: 2.3rem !important;
+        font-weight: 900 !important;
+        letter-spacing: 1.5px;
+    }
+    header {
+        transition: transform 0.36s cubic-bezier(.4,1.6,.6,1), box-shadow 0.36s cubic-bezier(.4,1.6,.6,1), height 0.36s, padding 0.36s;
+        will-change: transform, box-shadow;
+    }
+    header.home-sticky {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 1000;
+        background: #fff;
+        box-shadow: 0 6px 32px 0 rgba(99,102,241,0.13);
+        transform: scaleY(0.75);
+        transform-origin: top center;
+        height: 65px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    @media (max-width: 968px) {
+        header.home-sticky {
+            height: 54px !important;
+        }
+    }
+    </style>
+    <script>
+        (function() {
+            var last = false;
+            var header = document.querySelector('header');
+            if (!header) return;
+            function onScroll() {
+                if (window.scrollY > 40) {
+                    if (!last) {
+                        header.classList.add('home-sticky');
+                        last = true;
+                    }
+                } else {
+                    if (last) {
+                        header.classList.remove('home-sticky');
+                        last = false;
+                    }
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            // Nếu đã ở dưới khi load lại trang
+            onScroll();
+        })();
+    </script>
     <!-- Left: Articles and Tutorials -->
     <div style="flex: 2 1 400px; min-width: 320px;">
         <h2 style="color: #e11d48; letter-spacing: 2px; font-size: 1.1rem; font-weight: 700; margin-bottom: 18px; text-transform: uppercase;">Articles and Tutorials</h2>
