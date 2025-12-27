@@ -3,7 +3,7 @@ title: "Dimono Soccer Pro Shop Logo"
 date: 2025-12-27
 draft: false
 projectName: "Dimono Soccer Pro Shop Logo"
-image: "/images/Projects/dimono_logo.png"
+image: "/blog/images/Projects/dimono_logo.png"
 description: "Đồ án cơ sở: Thiết kế logo cho shop bóng đá Dimono, thể hiện sự mạnh mẽ, chuyên nghiệp và tinh thần thể thao."
 ---
 
@@ -11,7 +11,7 @@ description: "Đồ án cơ sở: Thiết kế logo cho shop bóng đá Dimono, 
 
 - Ảnh minh họa:
 
-![Dimono Soccer Pro Shop Logo](/images/Projects/dimono_logo.png)
+![Dimono Soccer Pro Shop Logo](/blog/images/Projects/dimono_logo.png)
 
 - Loại đồ án: Cơ sở
 - Chủ đề: Thiết kế đồ họa, nhận diện thương hiệu
