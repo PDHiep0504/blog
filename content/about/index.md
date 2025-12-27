@@ -7,7 +7,7 @@ heroTextLines:
   - "Tôi bắt đầu học và xây dựng các dự án web từ những kiến thức nền tảng, và duy trì việc học cũng như thực hành trong suốt quá trình học tập."
   - "Trong thời gian học Công nghệ Thông tin, Tôi đã thực hiện nhiều bài tập và dự án liên quan đến lập trình web, giúp củng cố tư duy và kỹ năng kỹ thuật."
   - "Hiện tại, Tôi tập trung vào Java, JavaScript và các kiến thức về mạng máy tính, với mục tiêu viết code rõ ràng, dễ bảo trì và vận hành ổn định."
-heroImage: "profile.png"
+heroImage: "about/profile.png"
 description: "Phạm Đình Hiệp — lập trình viên tập trung vào Java, JavaScript và network programming."
 keywords: ["java","javascript","network","backend","frontend"]
 ---
