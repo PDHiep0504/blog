@@ -3,7 +3,7 @@ title: "AI Agent Tư Vấn & Đặt Hàng Tự Động"
 date: 2025-12-27
 draft: false
 projectName: "AI Agent tư vấn & đặt hàng tự động cho website bán hàng"
-image: "/blog/images/Projects/ai_agent.png"
+image: "/blog/images/Projects/AI_Agent_tuvan_dathang.png"
 description: "Đồ án chuyên ngành: Xây dựng AI agent hỗ trợ tư vấn và đặt hàng tự động cho website bán hàng, giúp nâng cao trải nghiệm khách hàng và tối ưu hóa quy trình bán hàng."
 ---
 
@@ -11,7 +11,7 @@ description: "Đồ án chuyên ngành: Xây dựng AI agent hỗ trợ tư vấ
 
 - Ảnh minh họa:
 
-![AI Agent tư vấn & đặt hàng tự động](/blog/images/Projects/ai_agent.png)
+![AI Agent tư vấn & đặt hàng tự động](/blog/images/Projects/AI_Agent_tuvan_dathang.png)
 
 - Loại đồ án: Chuyên ngành
 - Công nghệ: AI, Web, Automation
