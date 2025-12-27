@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on HiT Blog</title>
-    <link>https://pdhiep0504.github.io/blog/categories/</link>
+    <link>https://PDHiep0504.github.io/blog/categories/</link>
     <description>Recent content in Categories on HiT Blog</description>
     <generator>Hugo</generator>
     <language>vi-VN</language>
     <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://pdhiep0504.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://PDHiep0504.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
-      <link>https://pdhiep0504.github.io/blog/categories/java/</link>
+      <link>https://PDHiep0504.github.io/blog/categories/java/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/categories/java/</guid>
+      <guid>https://PDHiep0504.github.io/blog/categories/java/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
-      <link>https://pdhiep0504.github.io/blog/categories/javascript/</link>
+      <link>https://PDHiep0504.github.io/blog/categories/javascript/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/categories/javascript/</guid>
+      <guid>https://PDHiep0504.github.io/blog/categories/javascript/</guid>
       <description></description>
     </item>
   </channel>

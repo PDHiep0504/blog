@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on HiT Blog</title>
-    <link>https://pdhiep0504.github.io/blog/categories/javascript/</link>
+    <link>https://PDHiep0504.github.io/blog/categories/javascript/</link>
     <description>Recent content in JavaScript on HiT Blog</description>
     <generator>Hugo</generator>
     <language>vi-VN</language>
     <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://pdhiep0504.github.io/blog/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://PDHiep0504.github.io/blog/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript cơ bản - Biến, Kiểu dữ liệu và Toán tử</title>
-      <link>https://pdhiep0504.github.io/blog/posts/javascript-basics/</link>
+      <link>https://PDHiep0504.github.io/blog/posts/javascript-basics/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/posts/javascript-basics/</guid>
+      <guid>https://PDHiep0504.github.io/blog/posts/javascript-basics/</guid>
       <description>&lt;h1 id=&#34;javascript-cơ-bản---nền-tảng-lập-trình-web&#34;&gt;JavaScript cơ bản - Nền tảng lập trình web&lt;/h1&gt;&#xA;&lt;p&gt;JavaScript là ngôn ngữ lập trình phổ biến nhất cho web development. Hãy cùng tìm hiểu các khái niệm cơ bản!&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-nền-tảng-đọc-trước-khi-code&#34;&gt;Lý thuyết nền tảng (đọc trước khi code)&lt;/h2&gt;&#xA;&lt;h3 id=&#34;javascript-chạy-như-thế-nào&#34;&gt;JavaScript chạy như thế nào?&lt;/h3&gt;&#xA;&lt;p&gt;JS là ngôn ngữ &lt;strong&gt;interpreted/JIT&lt;/strong&gt;: engine (V8, SpiderMonkey&amp;hellip;) parse code, tối ưu và thực thi. Thứ tự chạy phụ thuộc vào call stack và scope.&lt;/p&gt;&#xA;&lt;h3 id=&#34;scope-global--function--block&#34;&gt;Scope: global / function / block&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;var&lt;/code&gt;: &lt;strong&gt;function scope&lt;/strong&gt; và có hoisting.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;let/const&lt;/code&gt;: &lt;strong&gt;block scope&lt;/strong&gt; (trong &lt;code&gt;{}&lt;/code&gt;), có hoisting nhưng nằm trong &lt;strong&gt;temporal dead zone&lt;/strong&gt; (không dùng được trước khi khai báo).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;hoisting-giải-thích-ngắn&#34;&gt;Hoisting (giải thích ngắn)&lt;/h3&gt;&#xA;&lt;p&gt;Hoisting là hành vi “đưa phần khai báo lên trước” trong giai đoạn compile. Vì thế:&lt;/p&gt;</description>
     </item>
     <item>
       <title>JavaScript Functions - Arrow Functions và Higher-Order Functions</title>
-      <link>https://pdhiep0504.github.io/blog/posts/javascript-functions/</link>
+      <link>https://PDHiep0504.github.io/blog/posts/javascript-functions/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/posts/javascript-functions/</guid>
+      <guid>https://PDHiep0504.github.io/blog/posts/javascript-functions/</guid>
       <description>&lt;h1 id=&#34;javascript-functions---từ-cơ-bản-đến-nâng-cao&#34;&gt;JavaScript Functions - Từ cơ bản đến nâng cao&lt;/h1&gt;&#xA;&lt;p&gt;Functions là building blocks của JavaScript. Hãy cùng khám phá các cách định nghĩa và sử dụng functions!&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-nền-tảng&#34;&gt;Lý thuyết nền tảng&lt;/h2&gt;&#xA;&lt;h3 id=&#34;function-là-first-class-citizen&#34;&gt;Function là “first-class citizen”&lt;/h3&gt;&#xA;&lt;p&gt;Trong JavaScript, function là một giá trị: bạn có thể gán vào biến, truyền làm tham số, return từ function khác. Vì vậy mới có các khái niệm như callback, higher-order functions.&lt;/p&gt;&#xA;&lt;h3 id=&#34;execution-context-scope-và-closure&#34;&gt;Execution context, scope và closure&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Scope&lt;/strong&gt; (phạm vi): nơi một biến “có thể được truy cập”. JavaScript có &lt;code&gt;global scope&lt;/code&gt;, &lt;code&gt;function scope&lt;/code&gt;, và &lt;code&gt;block scope&lt;/code&gt; (với &lt;code&gt;let/const&lt;/code&gt;).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Closure&lt;/strong&gt;: một function “nhớ” được các biến ở scope bên ngoài tại thời điểm nó được tạo.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Ví dụ closure (rất hay gặp trong UI/event):&lt;/p&gt;</description>
     </item>
     <item>
       <title>Async JavaScript - Promises và Async/Await</title>
-      <link>https://pdhiep0504.github.io/blog/posts/javascript-async-await/</link>
+      <link>https://PDHiep0504.github.io/blog/posts/javascript-async-await/</link>
       <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/posts/javascript-async-await/</guid>
+      <guid>https://PDHiep0504.github.io/blog/posts/javascript-async-await/</guid>
       <description>&lt;h1 id=&#34;lập-trình-bất-đồng-bộ-trong-javascript&#34;&gt;Lập trình bất đồng bộ trong JavaScript&lt;/h1&gt;&#xA;&lt;p&gt;JavaScript là single-threaded, nhưng có thể xử lý nhiều tác vụ bất đồng bộ nhờ Event Loop. Hãy cùng tìm hiểu!&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-event-loop-task-queue-và-microtask&#34;&gt;Lý thuyết: Event Loop, Task Queue và Microtask&lt;/h2&gt;&#xA;&lt;h3 id=&#34;vì-sao-js-single-threaded-vẫn-làm-được-nhiều-việc&#34;&gt;Vì sao JS single-threaded vẫn làm được nhiều việc?&lt;/h3&gt;&#xA;&lt;p&gt;JS chạy code trên &lt;strong&gt;Call Stack&lt;/strong&gt; (một luồng). Các việc “chờ” như I/O, timer, network thường do môi trường (Browser/Node.js) xử lý. Khi xong, môi trường sẽ &lt;strong&gt;xếp callback&lt;/strong&gt; vào hàng đợi để JS xử lý sau.&lt;/p&gt;</description>
     </item>
     <item>
       <title>DOM Manipulation với JavaScript - Tương tác với HTML</title>
-      <link>https://pdhiep0504.github.io/blog/posts/javascript-dom-manipulation/</link>
+      <link>https://PDHiep0504.github.io/blog/posts/javascript-dom-manipulation/</link>
       <pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/posts/javascript-dom-manipulation/</guid>
+      <guid>https://PDHiep0504.github.io/blog/posts/javascript-dom-manipulation/</guid>
       <description>&lt;h1 id=&#34;dom-manipulation-với-javascript&#34;&gt;DOM Manipulation với JavaScript&lt;/h1&gt;&#xA;&lt;p&gt;DOM (Document Object Model) là cách JavaScript tương tác với HTML. Hãy cùng học cách thao tác với trang web!&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-dom-render-tree-và-event&#34;&gt;Lý thuyết: DOM, Render Tree và Event&lt;/h2&gt;&#xA;&lt;h3 id=&#34;dom-khác-gì-html&#34;&gt;DOM khác gì HTML?&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;HTML&lt;/strong&gt; là văn bản markup.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DOM&lt;/strong&gt; là cấu trúc đối tượng (tree) được browser tạo ra sau khi parse HTML.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Nên nhớ: DOM có thể thay đổi trong runtime (bạn add/remove element), còn HTML source ban đầu thì không tự đổi.&lt;/p&gt;</description>
     </item>
   </channel>

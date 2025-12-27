@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Error Handling on HiT Blog</title>
-    <link>https://pdhiep0504.github.io/blog/tags/error-handling/</link>
+    <link>https://PDHiep0504.github.io/blog/tags/error-handling/</link>
     <description>Recent content in Error Handling on HiT Blog</description>
     <generator>Hugo</generator>
     <language>vi-VN</language>
     <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://pdhiep0504.github.io/blog/tags/error-handling/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://PDHiep0504.github.io/blog/tags/error-handling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xử lý ngoại lệ (Exception Handling) trong Java</title>
-      <link>https://pdhiep0504.github.io/blog/posts/java-exception-handling/</link>
+      <link>https://PDHiep0504.github.io/blog/posts/java-exception-handling/</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/posts/java-exception-handling/</guid>
+      <guid>https://PDHiep0504.github.io/blog/posts/java-exception-handling/</guid>
       <description>&lt;h1 id=&#34;xử-lý-ngoại-lệ-trong-java&#34;&gt;Xử lý ngoại lệ trong Java&lt;/h1&gt;&#xA;&lt;p&gt;Xử lý ngoại lệ (Exception Handling) là một phần quan trọng trong lập trình Java, giúp chương trình xử lý các lỗi một cách an toàn.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-exception-là-gì-và-cơ-chế-hoạt-động&#34;&gt;Lý thuyết: Exception là gì và cơ chế hoạt động&lt;/h2&gt;&#xA;&lt;h3 id=&#34;exception-vs-error&#34;&gt;Exception vs Error&lt;/h3&gt;&#xA;&lt;p&gt;Trong Java, mọi “thứ có thể ném” đều là &lt;code&gt;Throwable&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Error&lt;/code&gt;: lỗi nghiêm trọng của JVM/hệ thống (OutOfMemoryError&amp;hellip;), thường &lt;strong&gt;không nên&lt;/strong&gt; bắt để “cứu” chương trình.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Exception&lt;/code&gt;: các tình huống bất thường mà chương trình &lt;strong&gt;có thể&lt;/strong&gt; xử lý/khôi phục.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Sơ đồ đơn giản:&lt;/p&gt;</description>
     </item>
   </channel>

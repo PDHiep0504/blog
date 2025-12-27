@@ -2,171 +2,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on HiT Blog</title>
-    <link>https://pdhiep0504.github.io/blog/tags/</link>
+    <link>https://PDHiep0504.github.io/blog/tags/</link>
     <description>Recent content in Tags on HiT Blog</description>
     <generator>Hugo</generator>
     <language>vi-VN</language>
     <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://pdhiep0504.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://PDHiep0504.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
-      <link>https://pdhiep0504.github.io/blog/tags/java/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/java/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/java/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Lập Trình Cơ Bản</title>
-      <link>https://pdhiep0504.github.io/blog/tags/l%E1%BA%ADp-tr%C3%ACnh-c%C6%A1-b%E1%BA%A3n/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/l%E1%BA%ADp-tr%C3%ACnh-c%C6%A1-b%E1%BA%A3n/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/l%E1%BA%ADp-tr%C3%ACnh-c%C6%A1-b%E1%BA%A3n/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/l%E1%BA%ADp-tr%C3%ACnh-c%C6%A1-b%E1%BA%A3n/</guid>
       <description></description>
     </item>
     <item>
       <title>OOP</title>
-      <link>https://pdhiep0504.github.io/blog/tags/oop/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/oop/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/oop/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/oop/</guid>
       <description></description>
     </item>
     <item>
       <title>Error Handling</title>
-      <link>https://pdhiep0504.github.io/blog/tags/error-handling/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/error-handling/</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/error-handling/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/error-handling/</guid>
       <description></description>
     </item>
     <item>
       <title>Exception</title>
-      <link>https://pdhiep0504.github.io/blog/tags/exception/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/exception/</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/exception/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/exception/</guid>
       <description></description>
     </item>
     <item>
       <title>Collections</title>
-      <link>https://pdhiep0504.github.io/blog/tags/collections/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/collections/</link>
       <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/collections/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/collections/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Structures</title>
-      <link>https://pdhiep0504.github.io/blog/tags/data-structures/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/data-structures/</link>
       <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/data-structures/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/data-structures/</guid>
       <description></description>
     </item>
     <item>
       <title>Concurrency</title>
-      <link>https://pdhiep0504.github.io/blog/tags/concurrency/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/concurrency/</link>
       <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/concurrency/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/concurrency/</guid>
       <description></description>
     </item>
     <item>
       <title>Multithreading</title>
-      <link>https://pdhiep0504.github.io/blog/tags/multithreading/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/multithreading/</link>
       <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/multithreading/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/multithreading/</guid>
       <description></description>
     </item>
     <item>
       <title>Network Programming</title>
-      <link>https://pdhiep0504.github.io/blog/tags/network-programming/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/network-programming/</link>
       <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/network-programming/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/network-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Socket</title>
-      <link>https://pdhiep0504.github.io/blog/tags/socket/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/socket/</link>
       <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/socket/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/socket/</guid>
       <description></description>
     </item>
     <item>
       <title>TCP/IP</title>
-      <link>https://pdhiep0504.github.io/blog/tags/tcp/ip/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/tcp/ip/</link>
       <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/tcp/ip/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/tcp/ip/</guid>
       <description></description>
     </item>
     <item>
       <title>Cơ Bản</title>
-      <link>https://pdhiep0504.github.io/blog/tags/c%C6%A1-b%E1%BA%A3n/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/c%C6%A1-b%E1%BA%A3n/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/c%C6%A1-b%E1%BA%A3n/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/c%C6%A1-b%E1%BA%A3n/</guid>
       <description></description>
     </item>
     <item>
       <title>ES6</title>
-      <link>https://pdhiep0504.github.io/blog/tags/es6/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/es6/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/es6/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/es6/</guid>
       <description></description>
     </item>
     <item>
       <title>JavaScript</title>
-      <link>https://pdhiep0504.github.io/blog/tags/javascript/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/javascript/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/javascript/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Programming</title>
-      <link>https://pdhiep0504.github.io/blog/tags/functional-programming/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/functional-programming/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/functional-programming/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/functional-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Functions</title>
-      <link>https://pdhiep0504.github.io/blog/tags/functions/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/functions/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/functions/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/functions/</guid>
       <description></description>
     </item>
     <item>
       <title>Async</title>
-      <link>https://pdhiep0504.github.io/blog/tags/async/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/async/</link>
       <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/async/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/async/</guid>
       <description></description>
     </item>
     <item>
       <title>Async/Await</title>
-      <link>https://pdhiep0504.github.io/blog/tags/async/await/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/async/await/</link>
       <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/async/await/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/async/await/</guid>
       <description></description>
     </item>
     <item>
       <title>Promises</title>
-      <link>https://pdhiep0504.github.io/blog/tags/promises/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/promises/</link>
       <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/promises/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/promises/</guid>
       <description></description>
     </item>
     <item>
       <title>DOM</title>
-      <link>https://pdhiep0504.github.io/blog/tags/dom/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/dom/</link>
       <pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/dom/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/dom/</guid>
       <description></description>
     </item>
     <item>
       <title>Frontend</title>
-      <link>https://pdhiep0504.github.io/blog/tags/frontend/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/frontend/</link>
       <pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/frontend/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/frontend/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
-      <link>https://pdhiep0504.github.io/blog/tags/web-development/</link>
+      <link>https://PDHiep0504.github.io/blog/tags/web-development/</link>
       <pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://pdhiep0504.github.io/blog/tags/web-development/</guid>
+      <guid>https://PDHiep0504.github.io/blog/tags/web-development/</guid>
       <description></description>
     </item>
   </channel>
