@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Structures on HiT Blog</title>
+    <link>https://pdhiep0504.github.io/blog/tags/data-structures/</link>
+    <description>Recent content in Data Structures on HiT Blog</description>
+    <generator>Hugo</generator>
+    <language>vi-VN</language>
+    <lastBuildDate>Thu, 18 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pdhiep0504.github.io/blog/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java Collections Framework - ArrayList, LinkedList, HashMap</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-collections-framework/</link>
+      <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-collections-framework/</guid>
+      <description>&lt;p&gt;Collections Framework (JCF) là bộ &lt;strong&gt;interface + class&lt;/strong&gt; giúp bạn lưu trữ và thao tác dữ liệu theo nhiều cách: danh sách (List), tập hợp (Set), hàng đợi (Queue/Deque) và ánh xạ key-value (Map).&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;collections-overview.svg&#34; alt=&#34;Tóm tắt nhanh Java Collections Framework&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;mục-tiêu-của-jcf&#34;&gt;Mục tiêu của JCF&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Chuẩn hoá API&lt;/strong&gt;: thay vì mỗi cấu trúc dữ liệu một kiểu, JCF gom về các interface chung.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Đổi implementation dễ&lt;/strong&gt;: bạn có thể thay &lt;code&gt;ArrayList&lt;/code&gt; → &lt;code&gt;LinkedList&lt;/code&gt; mà ít phải sửa code.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hiệu năng rõ ràng&lt;/strong&gt;: mỗi cấu trúc dữ liệu có trade-off khác nhau.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;chọn-collection-như-thế-nào&#34;&gt;Chọn Collection như thế nào?&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Hỏi: dữ liệu có &lt;strong&gt;trùng lặp&lt;/strong&gt; không?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Không trùng → &lt;code&gt;Set&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Có trùng → &lt;code&gt;List&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Hỏi: có cần &lt;strong&gt;thứ tự&lt;/strong&gt; không?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Cần thứ tự theo insertion → &lt;code&gt;List&lt;/code&gt; hoặc &lt;code&gt;LinkedHashSet&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Cần sort tự nhiên/Comparator → &lt;code&gt;TreeSet&lt;/code&gt; / &lt;code&gt;TreeMap&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Hỏi: có cần &lt;strong&gt;key → value&lt;/strong&gt; không?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Có → &lt;code&gt;Map&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;list-interface&#34;&gt;List Interface&lt;/h2&gt;&#xA;&lt;p&gt;List có &lt;strong&gt;thứ tự&lt;/strong&gt; và &lt;strong&gt;cho phép trùng&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network Programming on HiT Blog</title>
+    <link>https://pdhiep0504.github.io/blog/tags/network-programming/</link>
+    <description>Recent content in Network Programming on HiT Blog</description>
+    <generator>Hugo</generator>
+    <language>vi-VN</language>
+    <lastBuildDate>Tue, 16 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pdhiep0504.github.io/blog/tags/network-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lập trình Socket với Java - TCP/IP Communication</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-socket-programming/</link>
+      <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-socket-programming/</guid>
+      <description>&lt;h1 id=&#34;lập-trình-socket-với-java&#34;&gt;Lập trình Socket với Java&lt;/h1&gt;&#xA;&lt;p&gt;Socket programming là nền tảng của lập trình mạng, cho phép các ứng dụng giao tiếp qua mạng sử dụng giao thức TCP/IP.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-tcpip-và-giao-tiếp-client-server&#34;&gt;Lý thuyết: TCP/IP và giao tiếp client-server&lt;/h2&gt;&#xA;&lt;h3 id=&#34;tcp-đảm-bảo-gì&#34;&gt;TCP đảm bảo gì?&lt;/h3&gt;&#xA;&lt;p&gt;TCP là giao thức hướng kết nối, cung cấp:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reliable&lt;/strong&gt;: đảm bảo dữ liệu đến nơi (retransmit khi mất gói)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;In-order&lt;/strong&gt;: dữ liệu đến theo đúng thứ tự&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Stream-based&lt;/strong&gt;: TCP là &lt;em&gt;luồng byte&lt;/em&gt;, không phải “gói tin message”&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Điểm “stream-based” rất quan trọng: nếu bạn &lt;code&gt;write(&amp;quot;Hello&amp;quot;)&lt;/code&gt; rồi &lt;code&gt;write(&amp;quot;World&amp;quot;)&lt;/code&gt;, phía nhận có thể đọc được &lt;code&gt;HelloWorld&lt;/code&gt; trong một lần, hoặc tách ra nhiều lần đọc. Vì vậy cần &lt;strong&gt;message framing&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

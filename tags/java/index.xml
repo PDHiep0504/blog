@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on HiT Blog</title>
+    <link>https://pdhiep0504.github.io/blog/tags/java/</link>
+    <description>Recent content in Java on HiT Blog</description>
+    <generator>Hugo</generator>
+    <language>vi-VN</language>
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pdhiep0504.github.io/blog/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lập trình hướng đối tượng (OOP) trong Java - Khái niệm cơ bản</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-oop-basics/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-oop-basics/</guid>
+      <description>&lt;h1 id=&#34;lập-trình-hướng-đối-tượng-trong-java&#34;&gt;Lập trình hướng đối tượng trong Java&lt;/h1&gt;&#xA;&lt;p&gt;Lập trình hướng đối tượng (Object-Oriented Programming - OOP) là một paradigm lập trình quan trọng trong Java. Hãy cùng tìm hiểu các khái niệm cơ bản!&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-nền-tảng-về-oop-trong-java&#34;&gt;Lý thuyết nền tảng về OOP trong Java&lt;/h2&gt;&#xA;&lt;h3 id=&#34;object-và-class&#34;&gt;Object và Class&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Class&lt;/strong&gt; là “bản thiết kế” (blueprint): định nghĩa dữ liệu (field) và hành vi (method).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Object&lt;/strong&gt; là instance cụ thể được tạo từ class (&lt;code&gt;new&lt;/code&gt;).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Trong thực tế, OOP giúp bạn mô hình hoá bài toán theo &lt;em&gt;đối tượng&lt;/em&gt; thay vì chỉ theo hàm và dữ liệu rời rạc.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Xử lý ngoại lệ (Exception Handling) trong Java</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-exception-handling/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-exception-handling/</guid>
+      <description>&lt;h1 id=&#34;xử-lý-ngoại-lệ-trong-java&#34;&gt;Xử lý ngoại lệ trong Java&lt;/h1&gt;&#xA;&lt;p&gt;Xử lý ngoại lệ (Exception Handling) là một phần quan trọng trong lập trình Java, giúp chương trình xử lý các lỗi một cách an toàn.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-exception-là-gì-và-cơ-chế-hoạt-động&#34;&gt;Lý thuyết: Exception là gì và cơ chế hoạt động&lt;/h2&gt;&#xA;&lt;h3 id=&#34;exception-vs-error&#34;&gt;Exception vs Error&lt;/h3&gt;&#xA;&lt;p&gt;Trong Java, mọi “thứ có thể ném” đều là &lt;code&gt;Throwable&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Error&lt;/code&gt;: lỗi nghiêm trọng của JVM/hệ thống (OutOfMemoryError&amp;hellip;), thường &lt;strong&gt;không nên&lt;/strong&gt; bắt để “cứu” chương trình.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Exception&lt;/code&gt;: các tình huống bất thường mà chương trình &lt;strong&gt;có thể&lt;/strong&gt; xử lý/khôi phục.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Sơ đồ đơn giản:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Collections Framework - ArrayList, LinkedList, HashMap</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-collections-framework/</link>
+      <pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-collections-framework/</guid>
+      <description>&lt;p&gt;Collections Framework (JCF) là bộ &lt;strong&gt;interface + class&lt;/strong&gt; giúp bạn lưu trữ và thao tác dữ liệu theo nhiều cách: danh sách (List), tập hợp (Set), hàng đợi (Queue/Deque) và ánh xạ key-value (Map).&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;collections-overview.svg&#34; alt=&#34;Tóm tắt nhanh Java Collections Framework&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;mục-tiêu-của-jcf&#34;&gt;Mục tiêu của JCF&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Chuẩn hoá API&lt;/strong&gt;: thay vì mỗi cấu trúc dữ liệu một kiểu, JCF gom về các interface chung.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Đổi implementation dễ&lt;/strong&gt;: bạn có thể thay &lt;code&gt;ArrayList&lt;/code&gt; → &lt;code&gt;LinkedList&lt;/code&gt; mà ít phải sửa code.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hiệu năng rõ ràng&lt;/strong&gt;: mỗi cấu trúc dữ liệu có trade-off khác nhau.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;chọn-collection-như-thế-nào&#34;&gt;Chọn Collection như thế nào?&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Hỏi: dữ liệu có &lt;strong&gt;trùng lặp&lt;/strong&gt; không?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Không trùng → &lt;code&gt;Set&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Có trùng → &lt;code&gt;List&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Hỏi: có cần &lt;strong&gt;thứ tự&lt;/strong&gt; không?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Cần thứ tự theo insertion → &lt;code&gt;List&lt;/code&gt; hoặc &lt;code&gt;LinkedHashSet&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Cần sort tự nhiên/Comparator → &lt;code&gt;TreeSet&lt;/code&gt; / &lt;code&gt;TreeMap&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Hỏi: có cần &lt;strong&gt;key → value&lt;/strong&gt; không?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Có → &lt;code&gt;Map&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;list-interface&#34;&gt;List Interface&lt;/h2&gt;&#xA;&lt;p&gt;List có &lt;strong&gt;thứ tự&lt;/strong&gt; và &lt;strong&gt;cho phép trùng&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lập trình đa luồng (Multithreading) trong Java</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-multithreading/</link>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-multithreading/</guid>
+      <description>&lt;h1 id=&#34;lập-trình-đa-luồng-trong-java&#34;&gt;Lập trình đa luồng trong Java&lt;/h1&gt;&#xA;&lt;p&gt;Multithreading cho phép chương trình thực thi nhiều tác vụ đồng thời, tận dụng tối đa sức mạnh của CPU.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-concurrency-parallelism-và-thread-safety&#34;&gt;Lý thuyết: Concurrency, Parallelism và Thread-safety&lt;/h2&gt;&#xA;&lt;h3 id=&#34;concurrency-vs-parallelism&#34;&gt;Concurrency vs Parallelism&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Concurrency&lt;/strong&gt;: nhiều tác vụ cùng “được tiến hành” (đan xen thời gian), có thể trên 1 core.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Parallelism&lt;/strong&gt;: nhiều tác vụ chạy &lt;em&gt;đồng thời thật&lt;/em&gt; trên nhiều core.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Trong Java, bạn viết code theo hướng concurrency; việc có parallelism hay không phụ thuộc CPU và scheduler.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lập trình Socket với Java - TCP/IP Communication</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-socket-programming/</link>
+      <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-socket-programming/</guid>
+      <description>&lt;h1 id=&#34;lập-trình-socket-với-java&#34;&gt;Lập trình Socket với Java&lt;/h1&gt;&#xA;&lt;p&gt;Socket programming là nền tảng của lập trình mạng, cho phép các ứng dụng giao tiếp qua mạng sử dụng giao thức TCP/IP.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-tcpip-và-giao-tiếp-client-server&#34;&gt;Lý thuyết: TCP/IP và giao tiếp client-server&lt;/h2&gt;&#xA;&lt;h3 id=&#34;tcp-đảm-bảo-gì&#34;&gt;TCP đảm bảo gì?&lt;/h3&gt;&#xA;&lt;p&gt;TCP là giao thức hướng kết nối, cung cấp:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reliable&lt;/strong&gt;: đảm bảo dữ liệu đến nơi (retransmit khi mất gói)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;In-order&lt;/strong&gt;: dữ liệu đến theo đúng thứ tự&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Stream-based&lt;/strong&gt;: TCP là &lt;em&gt;luồng byte&lt;/em&gt;, không phải “gói tin message”&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Điểm “stream-based” rất quan trọng: nếu bạn &lt;code&gt;write(&amp;quot;Hello&amp;quot;)&lt;/code&gt; rồi &lt;code&gt;write(&amp;quot;World&amp;quot;)&lt;/code&gt;, phía nhận có thể đọc được &lt;code&gt;HelloWorld&lt;/code&gt; trong một lần, hoặc tách ra nhiều lần đọc. Vì vậy cần &lt;strong&gt;message framing&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

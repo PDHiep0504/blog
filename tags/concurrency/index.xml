@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concurrency on HiT Blog</title>
+    <link>https://pdhiep0504.github.io/blog/tags/concurrency/</link>
+    <description>Recent content in Concurrency on HiT Blog</description>
+    <generator>Hugo</generator>
+    <language>vi-VN</language>
+    <lastBuildDate>Wed, 17 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pdhiep0504.github.io/blog/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lập trình đa luồng (Multithreading) trong Java</title>
+      <link>https://pdhiep0504.github.io/blog/posts/java-multithreading/</link>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/java-multithreading/</guid>
+      <description>&lt;h1 id=&#34;lập-trình-đa-luồng-trong-java&#34;&gt;Lập trình đa luồng trong Java&lt;/h1&gt;&#xA;&lt;p&gt;Multithreading cho phép chương trình thực thi nhiều tác vụ đồng thời, tận dụng tối đa sức mạnh của CPU.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-concurrency-parallelism-và-thread-safety&#34;&gt;Lý thuyết: Concurrency, Parallelism và Thread-safety&lt;/h2&gt;&#xA;&lt;h3 id=&#34;concurrency-vs-parallelism&#34;&gt;Concurrency vs Parallelism&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Concurrency&lt;/strong&gt;: nhiều tác vụ cùng “được tiến hành” (đan xen thời gian), có thể trên 1 core.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Parallelism&lt;/strong&gt;: nhiều tác vụ chạy &lt;em&gt;đồng thời thật&lt;/em&gt; trên nhiều core.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Trong Java, bạn viết code theo hướng concurrency; việc có parallelism hay không phụ thuộc CPU và scheduler.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

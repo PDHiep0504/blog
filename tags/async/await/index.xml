@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Async/Await on HiT Blog</title>
+    <link>https://pdhiep0504.github.io/blog/tags/async/await/</link>
+    <description>Recent content in Async/Await on HiT Blog</description>
+    <generator>Hugo</generator>
+    <language>vi-VN</language>
+    <lastBuildDate>Sat, 13 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pdhiep0504.github.io/blog/tags/async/await/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Async JavaScript - Promises và Async/Await</title>
+      <link>https://pdhiep0504.github.io/blog/posts/javascript-async-await/</link>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/javascript-async-await/</guid>
+      <description>&lt;h1 id=&#34;lập-trình-bất-đồng-bộ-trong-javascript&#34;&gt;Lập trình bất đồng bộ trong JavaScript&lt;/h1&gt;&#xA;&lt;p&gt;JavaScript là single-threaded, nhưng có thể xử lý nhiều tác vụ bất đồng bộ nhờ Event Loop. Hãy cùng tìm hiểu!&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-event-loop-task-queue-và-microtask&#34;&gt;Lý thuyết: Event Loop, Task Queue và Microtask&lt;/h2&gt;&#xA;&lt;h3 id=&#34;vì-sao-js-single-threaded-vẫn-làm-được-nhiều-việc&#34;&gt;Vì sao JS single-threaded vẫn làm được nhiều việc?&lt;/h3&gt;&#xA;&lt;p&gt;JS chạy code trên &lt;strong&gt;Call Stack&lt;/strong&gt; (một luồng). Các việc “chờ” như I/O, timer, network thường do môi trường (Browser/Node.js) xử lý. Khi xong, môi trường sẽ &lt;strong&gt;xếp callback&lt;/strong&gt; vào hàng đợi để JS xử lý sau.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

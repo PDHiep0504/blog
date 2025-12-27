@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DOM on HiT Blog</title>
+    <link>https://pdhiep0504.github.io/blog/tags/dom/</link>
+    <description>Recent content in DOM on HiT Blog</description>
+    <generator>Hugo</generator>
+    <language>vi-VN</language>
+    <lastBuildDate>Fri, 12 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pdhiep0504.github.io/blog/tags/dom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DOM Manipulation với JavaScript - Tương tác với HTML</title>
+      <link>https://pdhiep0504.github.io/blog/posts/javascript-dom-manipulation/</link>
+      <pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://pdhiep0504.github.io/blog/posts/javascript-dom-manipulation/</guid>
+      <description>&lt;h1 id=&#34;dom-manipulation-với-javascript&#34;&gt;DOM Manipulation với JavaScript&lt;/h1&gt;&#xA;&lt;p&gt;DOM (Document Object Model) là cách JavaScript tương tác với HTML. Hãy cùng học cách thao tác với trang web!&lt;/p&gt;&#xA;&lt;h2 id=&#34;lý-thuyết-dom-render-tree-và-event&#34;&gt;Lý thuyết: DOM, Render Tree và Event&lt;/h2&gt;&#xA;&lt;h3 id=&#34;dom-khác-gì-html&#34;&gt;DOM khác gì HTML?&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;HTML&lt;/strong&gt; là văn bản markup.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DOM&lt;/strong&gt; là cấu trúc đối tượng (tree) được browser tạo ra sau khi parse HTML.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Nên nhớ: DOM có thể thay đổi trong runtime (bạn add/remove element), còn HTML source ban đầu thì không tự đổi.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

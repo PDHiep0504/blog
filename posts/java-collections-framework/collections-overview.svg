@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 34px/1.2 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #111827; }
+      .sub { font: 500 18px/1.4 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #6b7280; }
+      .box { fill: #f9fafb; stroke: #e5e7eb; stroke-width: 2; rx: 16; }
+      .boxTitle { font: 700 22px/1.2 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #1f2937; }
+      .boxText { font: 500 16px/1.4 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #6b7280; }
+      .pill { fill: #dbeafe; stroke: #bfdbfe; stroke-width: 2; rx: 999; }
+      .pillText { font: 700 14px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill: #1e40af; }
+      .line { stroke: #d1d5db; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="520"/>
+
+  <text class="title" x="48" y="72">Java Collections Framework — Tóm tắt nhanh</text>
+  <text class="sub" x="48" y="104">Chọn đúng interface trước, rồi chọn implementation phù hợp.</text>
+
+  <!-- Boxes -->
+  <rect class="box" x="48" y="150" width="350" height="140" rx="16"/>
+  <text class="boxTitle" x="76" y="196">List</text>
+  <text class="boxText" x="76" y="226">Có thứ tự, cho phép trùng lặp.</text>
+  <rect class="pill" x="76" y="244" width="130" height="34" rx="999"/>
+  <text class="pillText" x="92" y="266">ArrayList</text>
+  <rect class="pill" x="216" y="244" width="130" height="34" rx="999"/>
+  <text class="pillText" x="232" y="266">LinkedList</text>
+
+  <rect class="box" x="425" y="150" width="350" height="140" rx="16"/>
+  <text class="boxTitle" x="453" y="196">Set</text>
+  <text class="boxText" x="453" y="226">Không trùng lặp.</text>
+  <rect class="pill" x="453" y="244" width="130" height="34" rx="999"/>
+  <text class="pillText" x="475" y="266">HashSet</text>
+  <rect class="pill" x="593" y="244" width="160" height="34" rx="999"/>
+  <text class="pillText" x="612" y="266">TreeSet</text>
+
+  <rect class="box" x="802" y="150" width="350" height="140" rx="16"/>
+  <text class="boxTitle" x="830" y="196">Queue / Deque</text>
+  <text class="boxText" x="830" y="226">Hàng đợi / 2 đầu.</text>
+  <rect class="pill" x="830" y="244" width="160" height="34" rx="999"/>
+  <text class="pillText" x="850" y="266">ArrayDeque</text>
+  <rect class="pill" x="998" y="244" width="150" height="34" rx="999"/>
+  <text class="pillText" x="1018" y="266">PriorityQueue</text>
+
+  <rect class="box" x="48" y="320" width="1104" height="150" rx="16"/>
+  <text class="boxTitle" x="76" y="366">Map</text>
+  <text class="boxText" x="76" y="396">Key → Value (không phải Collection nhưng nằm trong framework).</text>
+  <rect class="pill" x="76" y="412" width="140" height="34" rx="999"/>
+  <text class="pillText" x="98" y="434">HashMap</text>
+  <rect class="pill" x="226" y="412" width="170" height="34" rx="999"/>
+  <text class="pillText" x="246" y="434">LinkedHashMap</text>
+  <rect class="pill" x="406" y="412" width="150" height="34" rx="999"/>
+  <text class="pillText" x="426" y="434">TreeMap</text>
+  <rect class="pill" x="566" y="412" width="210" height="34" rx="999"/>
+  <text class="pillText" x="586" y="434">ConcurrentHashMap</text>
+
+  <!-- Lines -->
+  <line class="line" x1="220" y1="290" x2="220" y2="320"/>
+  <line class="line" x1="600" y1="290" x2="600" y2="320"/>
+  <line class="line" x1="975" y1="290" x2="975" y2="320"/>
+</svg>
