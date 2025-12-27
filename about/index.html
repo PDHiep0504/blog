@@ -1680,8 +1680,10 @@
           
         </div>
         
-          <div class="about-hero-media">
-            <img src="/blog/images/about/profile.png" alt="Profile" />
+          <div class="about-hero-media" style="display:flex; align-items:center; justify-content:center;">
+            <div style="width:220px; height:320px; border-radius:16px; overflow:hidden; box-shadow:0 12px 30px rgba(16,24,40,0.12); transition: transform 0.28s ease, box-shadow 0.28s ease; background: linear-gradient(180deg, #ffffff, #f8fafc);">
+              <img src="/blog/images/about/profile.png" alt="Profile" style="width:100%; height:100%; object-fit:cover; display:block;" onmouseover="this.parentElement.style.transform='translateY(-6px)'; this.parentElement.style.boxShadow='0 20px 40px rgba(16,24,40,0.16)';" onmouseout="this.parentElement.style.transform='translateY(0)'; this.parentElement.style.boxShadow='0 12px 30px rgba(16,24,40,0.12)';" />
+            </div>
           </div>
         
       </div>
