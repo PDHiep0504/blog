@@ -1681,243 +1681,174 @@
 
     <div class="post-layout">
         <div class="post-body content" id="postBody">
-            <h1 id="java-collections-framework">Java Collections Framework</h1>
-<p>Collections Framework là một trong những phần quan trọng nhất của Java, cung cấp các cấu trúc dữ liệu và thuật toán phổ biến.</p>
-<h2 id="lý-thuyết-nhanh-vì-sao-cần-collections-framework">Lý thuyết nhanh: vì sao cần Collections Framework?</h2>
-<p>Nếu chỉ dùng mảng (<code>T[]</code>) bạn sẽ gặp nhiều giới hạn: kích thước cố định, thiếu API thao tác (sort, search, remove&hellip;) và khó thay đổi cấu trúc dữ liệu về sau.</p>
-<p>JCF giải quyết bằng cách chuẩn hoá các interface chính:</p>
+            <p>Collections Framework (JCF) là bộ <strong>interface + class</strong> giúp bạn lưu trữ và thao tác dữ liệu theo nhiều cách: danh sách (List), tập hợp (Set), hàng đợi (Queue/Deque) và ánh xạ key-value (Map).</p>
+<p><img src="collections-overview.svg" alt="Tóm tắt nhanh Java Collections Framework"></p>
+<h2 id="mục-tiêu-của-jcf">Mục tiêu của JCF</h2>
 <ul>
-<li><code>List</code>: có thứ tự, cho phép trùng</li>
-<li><code>Set</code>: không cho phép trùng</li>
-<li><code>Queue/Deque</code>: hàng đợi/ngăn xếp theo ngữ nghĩa</li>
-<li><code>Map</code>: key → value (không thuộc <code>Collection</code>, nhưng là “họ hàng” quan trọng)</li>
+<li><strong>Chuẩn hoá API</strong>: thay vì mỗi cấu trúc dữ liệu một kiểu, JCF gom về các interface chung.</li>
+<li><strong>Đổi implementation dễ</strong>: bạn có thể thay <code>ArrayList</code> → <code>LinkedList</code> mà ít phải sửa code.</li>
+<li><strong>Hiệu năng rõ ràng</strong>: mỗi cấu trúc dữ liệu có trade-off khác nhau.</li>
 </ul>
-<p>Khi chọn collection, hãy luôn nghĩ về 3 câu hỏi:</p>
+<h2 id="chọn-collection-như-thế-nào">Chọn Collection như thế nào?</h2>
 <ol>
-<li>Có cần thứ tự không?</li>
-<li>Có cần trùng lặp không?</li>
-<li>Cần tra cứu theo key hay theo index?</li>
+<li>Hỏi: dữ liệu có <strong>trùng lặp</strong> không?</li>
 </ol>
+<ul>
+<li>Không trùng → <code>Set</code></li>
+<li>Có trùng → <code>List</code></li>
+</ul>
+<ol start="2">
+<li>Hỏi: có cần <strong>thứ tự</strong> không?</li>
+</ol>
+<ul>
+<li>Cần thứ tự theo insertion → <code>List</code> hoặc <code>LinkedHashSet</code></li>
+<li>Cần sort tự nhiên/Comparator → <code>TreeSet</code> / <code>TreeMap</code></li>
+</ul>
+<ol start="3">
+<li>Hỏi: có cần <strong>key → value</strong> không?</li>
+</ol>
+<ul>
+<li>Có → <code>Map</code></li>
+</ul>
 <h2 id="list-interface">List Interface</h2>
-<h3 id="arraylist---dynamic-array">ArrayList - Dynamic Array</h3>
-<p>ArrayList sử dụng mảng động để lưu trữ dữ liệu.</p>
+<p>List có <strong>thứ tự</strong> và <strong>cho phép trùng</strong>.</p>
+<h3 id="arraylist-default-choice">ArrayList (default choice)</h3>
+<p><code>ArrayList</code> phù hợp nhất cho đa số trường hợp: truy cập theo index nhanh, duyệt nhanh.</p>
+<p><img src="arraylist-vs-linkedlist.svg" alt="ArrayList vs LinkedList"></p>
+<p>Ví dụ CRUD cơ bản:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collections;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrayListExample</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Khởi tạo ArrayList</span>
-</span></span><span style="display:flex;"><span>        ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> fruits <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm phần tử</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> fruits <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Táo&#34;</span>);
 </span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Chuối&#34;</span>);
 </span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Cam&#34;</span>);
 </span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Xoài&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm tại vị trí cụ thể</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">add</span>(1, <span style="color:#e6db74">&#34;Dâu&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Truy cập phần tử</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Phần tử đầu tiên: &#34;</span> <span style="color:#f92672">+</span> fruits.<span style="color:#a6e22e">get</span>(0));
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Cập nhật</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;First: &#34;</span> <span style="color:#f92672">+</span> fruits.<span style="color:#a6e22e">get</span>(0));
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">set</span>(0, <span style="color:#e6db74">&#34;Táo xanh&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Xóa phần tử</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#34;Cam&#34;</span>);
-</span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">remove</span>(0); <span style="color:#75715e">// Xóa theo index</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Kích thước</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Số phần tử: &#34;</span> <span style="color:#f92672">+</span> fruits.<span style="color:#a6e22e">size</span>());
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Duyệt qua ArrayList</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nDanh sách trái cây:&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String fruit : fruits) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;- &#34;</span> <span style="color:#f92672">+</span> fruit);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Sắp xếp</span>
+</span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">remove</span>(0);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Size: &#34;</span> <span style="color:#f92672">+</span> fruits.<span style="color:#a6e22e">size</span>());
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        Collections.<span style="color:#a6e22e">sort</span>(fruits);
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nSau khi sắp xếp: &#34;</span> <span style="color:#f92672">+</span> fruits);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Kiểm tra tồn tại</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (fruits.<span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;Chuối&#34;</span>)) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Có chuối trong danh sách&#34;</span>);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Xóa tất cả</span>
-</span></span><span style="display:flex;"><span>        fruits.<span style="color:#a6e22e">clear</span>();
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;ArrayList rỗng? &#34;</span> <span style="color:#f92672">+</span> fruits.<span style="color:#a6e22e">isEmpty</span>());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Sorted: &#34;</span> <span style="color:#f92672">+</span> fruits);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Contains Chuối? &#34;</span> <span style="color:#f92672">+</span> fruits.<span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;Chuối&#34;</span>));
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>Ưu điểm:</strong></p>
+</span></span></code></pre></div><p>Khi nên dùng:</p>
 <ul>
-<li>Truy cập nhanh theo index: O(1)</li>
-<li>Duyệt qua các phần tử nhanh</li>
+<li><code>get(i)</code>/<code>set(i)</code> nhiều</li>
+<li>Duyệt list thường xuyên</li>
+<li>Append ở cuối list là chủ yếu</li>
 </ul>
-<p><strong>Nhược điểm:</strong></p>
-<ul>
-<li>Thêm/xóa ở giữa chậm: O(n)</li>
-<li>Tốn bộ nhớ khi mảng phải mở rộng</li>
-</ul>
-<h3 id="linkedlist---danh-sách-liên-kết">LinkedList - Danh sách liên kết</h3>
+<h3 id="linkedlist-dùng-như-dequequeue">LinkedList (dùng như Deque/Queue)</h3>
+<p><code>LinkedList</code> thường hợp hơn nếu bạn thao tác <strong>đầu/cuối</strong> nhiều (Deque). Nếu bạn cần Queue/Deque hiệu năng tốt, ưu tiên <code>ArrayDeque</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.LinkedList;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedListExample</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedListAsDeque</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        LinkedList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> names <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm phần tử</span>
-</span></span><span style="display:flex;"><span>        names.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;An&#34;</span>);
-</span></span><span style="display:flex;"><span>        names.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Bình&#34;</span>);
-</span></span><span style="display:flex;"><span>        names.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Chi&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm vào đầu/cuối</span>
-</span></span><span style="display:flex;"><span>        names.<span style="color:#a6e22e">addFirst</span>(<span style="color:#e6db74">&#34;Anh&#34;</span>);
-</span></span><span style="display:flex;"><span>        names.<span style="color:#a6e22e">addLast</span>(<span style="color:#e6db74">&#34;Dũng&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Lấy phần tử đầu/cuối</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Đầu: &#34;</span> <span style="color:#f92672">+</span> names.<span style="color:#a6e22e">getFirst</span>());
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Cuối: &#34;</span> <span style="color:#f92672">+</span> names.<span style="color:#a6e22e">getLast</span>());
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Xóa đầu/cuối</span>
-</span></span><span style="display:flex;"><span>        names.<span style="color:#a6e22e">removeFirst</span>();
-</span></span><span style="display:flex;"><span>        names.<span style="color:#a6e22e">removeLast</span>();
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Danh sách: &#34;</span> <span style="color:#f92672">+</span> names);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Sử dụng như Queue</span>
-</span></span><span style="display:flex;"><span>        LinkedList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> queue <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>        queue.<span style="color:#a6e22e">offer</span>(<span style="color:#e6db74">&#34;Task 1&#34;</span>); <span style="color:#75715e">// Thêm vào cuối</span>
-</span></span><span style="display:flex;"><span>        queue.<span style="color:#a6e22e">offer</span>(<span style="color:#e6db74">&#34;Task 2&#34;</span>);
-</span></span><span style="display:flex;"><span>        queue.<span style="color:#a6e22e">offer</span>(<span style="color:#e6db74">&#34;Task 3&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nXử lý Queue:&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>queue.<span style="color:#a6e22e">isEmpty</span>()) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Xử lý: &#34;</span> <span style="color:#f92672">+</span> queue.<span style="color:#a6e22e">poll</span>()); <span style="color:#75715e">// Lấy và xóa từ đầu</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Sử dụng như Stack</span>
-</span></span><span style="display:flex;"><span>        LinkedList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>        stack.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;Item 1&#34;</span>); <span style="color:#75715e">// Thêm vào đầu</span>
-</span></span><span style="display:flex;"><span>        stack.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;Item 2&#34;</span>);
-</span></span><span style="display:flex;"><span>        stack.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;Item 3&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nXử lý Stack:&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>stack.<span style="color:#a6e22e">isEmpty</span>()) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Pop: &#34;</span> <span style="color:#f92672">+</span> stack.<span style="color:#a6e22e">pop</span>()); <span style="color:#75715e">// Lấy và xóa từ đầu</span>
-</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        LinkedList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> deque <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        deque.<span style="color:#a6e22e">addLast</span>(<span style="color:#e6db74">&#34;A&#34;</span>);
+</span></span><span style="display:flex;"><span>        deque.<span style="color:#a6e22e">addLast</span>(<span style="color:#e6db74">&#34;B&#34;</span>);
+</span></span><span style="display:flex;"><span>        deque.<span style="color:#a6e22e">addFirst</span>(<span style="color:#e6db74">&#34;HEAD&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(deque); <span style="color:#75715e">// [HEAD, A, B]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;removeFirst: &#34;</span> <span style="color:#f92672">+</span> deque.<span style="color:#a6e22e">removeFirst</span>());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;removeLast: &#34;</span> <span style="color:#f92672">+</span> deque.<span style="color:#a6e22e">removeLast</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(deque);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>Ưu điểm:</strong></p>
+</span></span></code></pre></div><h2 id="set-interface">Set Interface</h2>
+<p>Set <strong>không cho phép trùng lặp</strong>. Hai khái niệm quan trọng:</p>
 <ul>
-<li>Thêm/xóa ở đầu/cuối nhanh: O(1)</li>
-<li>Không cần mở rộng bộ nhớ</li>
+<li><strong>Định nghĩa trùng</strong> dựa vào <code>equals()</code> và <code>hashCode()</code> (với HashSet).</li>
+<li>Với TreeSet, trùng dựa vào <code>compareTo()</code>/Comparator.</li>
 </ul>
-<p><strong>Nhược điểm:</strong></p>
+<h3 id="hashset--linkedhashset--treeset">HashSet / LinkedHashSet / TreeSet</h3>
 <ul>
-<li>Truy cập theo index chậm: O(n)</li>
-<li>Tốn bộ nhớ cho con trỏ</li>
+<li><code>HashSet</code>: nhanh, không đảm bảo thứ tự.</li>
+<li><code>LinkedHashSet</code>: giữ thứ tự insertion.</li>
+<li><code>TreeSet</code>: luôn được sort.</li>
 </ul>
-<h2 id="map-interface">Map Interface</h2>
-<h3 id="hashmap---key-value-storage">HashMap - Key-Value Storage</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SetDemo</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;</span>(List.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;java&#34;</span>, <span style="color:#e6db74">&#34;java&#34;</span>, <span style="color:#e6db74">&#34;js&#34;</span>));
+</span></span><span style="display:flex;"><span>        Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashSet<span style="color:#f92672">&lt;&gt;</span>(List.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;c&#34;</span>));
+</span></span><span style="display:flex;"><span>        Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeSet<span style="color:#f92672">&lt;&gt;</span>(List.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;c&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(a); <span style="color:#75715e">// [java, js] (thứ tự không đảm bảo)</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(b); <span style="color:#75715e">// [b, a, c]  (giữ insertion)</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(c); <span style="color:#75715e">// [a, b, c]  (sorted)</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="map-interface">Map Interface</h2>
+<p>Map lưu theo <strong>key → value</strong>.</p>
+<h3 id="hashmap-phổ-biến-nhất">HashMap (phổ biến nhất)</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.HashMap;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Map;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HashMapExample</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Khởi tạo HashMap</span>
-</span></span><span style="display:flex;"><span>        HashMap<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> scores <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm cặp key-value</span>
+</span></span><span style="display:flex;"><span>        Map<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> scores <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;An&#34;</span>, 85);
 </span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Bình&#34;</span>, 92);
 </span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Chi&#34;</span>, 78);
-</span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Dũng&#34;</span>, 95);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Truy cập giá trị</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Điểm của An: &#34;</span> <span style="color:#f92672">+</span> scores.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;An&#34;</span>));
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Cập nhật giá trị</span>
-</span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;An&#34;</span>, 90); <span style="color:#75715e">// Ghi đè</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Thêm nếu chưa tồn tại</span>
-</span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">putIfAbsent</span>(<span style="color:#e6db74">&#34;An&#34;</span>, 100); <span style="color:#75715e">// Không thay đổi vì đã có</span>
-</span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">putIfAbsent</span>(<span style="color:#e6db74">&#34;Em&#34;</span>, 88);  <span style="color:#75715e">// Thêm mới</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Kiểm tra tồn tại</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (scores.<span style="color:#a6e22e">containsKey</span>(<span style="color:#e6db74">&#34;Bình&#34;</span>)) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Bình có trong danh sách&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;An&#34;</span>, 90); <span style="color:#75715e">// ghi đè</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(scores.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;An&#34;</span>));
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(scores.<span style="color:#a6e22e">getOrDefault</span>(<span style="color:#e6db74">&#34;Không có&#34;</span>, 0));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Map.<span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> e : scores.<span style="color:#a6e22e">entrySet</span>()) {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(e.<span style="color:#a6e22e">getKey</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> e.<span style="color:#a6e22e">getValue</span>());
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (scores.<span style="color:#a6e22e">containsValue</span>(95)) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Có người đạt 95 điểm&#34;</span>);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Lấy giá trị mặc định nếu không tồn tại</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> score <span style="color:#f92672">=</span> scores.<span style="color:#a6e22e">getOrDefault</span>(<span style="color:#e6db74">&#34;Phương&#34;</span>, 0);
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Điểm của Phương: &#34;</span> <span style="color:#f92672">+</span> score);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Duyệt qua HashMap</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nBảng điểm:&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Map.<span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> entry : scores.<span style="color:#a6e22e">entrySet</span>()) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(entry.<span style="color:#a6e22e">getKey</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> entry.<span style="color:#a6e22e">getValue</span>());
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Chỉ duyệt keys</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nDanh sách học sinh:&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String name : scores.<span style="color:#a6e22e">keySet</span>()) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;- &#34;</span> <span style="color:#f92672">+</span> name);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Chỉ duyệt values</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nDanh sách điểm:&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Integer score2 : scores.<span style="color:#a6e22e">values</span>()) {
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;- &#34;</span> <span style="color:#f92672">+</span> score2);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Xóa</span>
-</span></span><span style="display:flex;"><span>        scores.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#34;Chi&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Kích thước</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\nSố học sinh: &#34;</span> <span style="color:#f92672">+</span> scores.<span style="color:#a6e22e">size</span>());
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="ví-dụ-thực-tế-đếm-từ-trong-văn-bản">Ví dụ thực tế: Đếm từ trong văn bản</h3>
+</span></span></code></pre></div><h3 id="ví-dụ-thực-tế-đếm-tần-suất-từ">Ví dụ thực tế: đếm tần suất từ</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.HashMap;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Locale;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Map;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WordCounter</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        String text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Java là ngôn ngữ lập trình hướng đối tượng. &#34;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#e6db74">&#34;Java được sử dụng rộng rãi trong phát triển ứng dụng. &#34;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>                     <span style="color:#e6db74">&#34;Học Java rất quan trọng.&#34;</span>;
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Tách từ và chuyển về chữ thường</span>
-</span></span><span style="display:flex;"><span>        String<span style="color:#f92672">[]</span> words <span style="color:#f92672">=</span> text.<span style="color:#a6e22e">toLowerCase</span>()
-</span></span><span style="display:flex;"><span>                            .<span style="color:#a6e22e">replaceAll</span>(<span style="color:#e6db74">&#34;[^a-záàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ ]&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span>                            .<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;\\s+&#34;</span>);
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Đếm tần suất</span>
-</span></span><span style="display:flex;"><span>        HashMap<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> wordCount <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String word : words) {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>word.<span style="color:#a6e22e">isEmpty</span>()) {
-</span></span><span style="display:flex;"><span>                wordCount.<span style="color:#a6e22e">put</span>(word, wordCount.<span style="color:#a6e22e">getOrDefault</span>(word, 0) <span style="color:#f92672">+</span> 1);
-</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        String text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Java là ngôn ngữ lập trình hướng đối tượng. Java được dùng rất nhiều.&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        String<span style="color:#f92672">[]</span> words <span style="color:#f92672">=</span> normalize(text).<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;\\s+&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Map<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> freq <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String w : words) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (w.<span style="color:#a6e22e">isBlank</span>()) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>            freq.<span style="color:#a6e22e">put</span>(w, freq.<span style="color:#a6e22e">getOrDefault</span>(w, 0) <span style="color:#f92672">+</span> 1);
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Hiển thị kết quả</span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Tần suất từ:&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Map.<span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> entry : wordCount.<span style="color:#a6e22e">entrySet</span>()) {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (entry.<span style="color:#a6e22e">getValue</span>() <span style="color:#f92672">&gt;</span> 1) {
-</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(entry.<span style="color:#a6e22e">getKey</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> entry.<span style="color:#a6e22e">getValue</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; lần&#34;</span>);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(freq);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">normalize</span>(String input) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> input
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">toLowerCase</span>(Locale.<span style="color:#a6e22e">ROOT</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">replaceAll</span>(<span style="color:#e6db74">&#34;[^a-z0-9áàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ ]&#34;</span>, <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">trim</span>();
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="so-sánh-arraylist-vs-linkedlist">So sánh ArrayList vs LinkedList</h2>
+</span></span></code></pre></div><h2 id="bảng-so-sánh-nhanh">Bảng so sánh nhanh</h2>
 <table>
   <thead>
       <tr>
@@ -1933,12 +1864,12 @@
           <td>O(n)</td>
       </tr>
       <tr>
-          <td>add(element)</td>
+          <td>addLast</td>
           <td>O(1)*</td>
           <td>O(1)</td>
       </tr>
       <tr>
-          <td>add(index, element)</td>
+          <td>add(index)</td>
           <td>O(n)</td>
           <td>O(n)</td>
       </tr>
@@ -1948,45 +1879,20 @@
           <td>O(n)</td>
       </tr>
       <tr>
-          <td>addFirst/Last</td>
-          <td>O(n)</td>
-          <td>O(1)</td>
-      </tr>
-      <tr>
-          <td>removeFirst/Last</td>
+          <td>addFirst/removeFirst</td>
           <td>O(n)</td>
           <td>O(1)</td>
       </tr>
   </tbody>
 </table>
-<p>*Trung bình O(1), worst case O(n) khi cần mở rộng mảng</p>
-<h2 id="khi-nào-dùng-gì">Khi nào dùng gì?</h2>
-<p><strong>ArrayList:</strong></p>
-<ul>
-<li>Khi cần truy cập ngẫu nhiên nhiều</li>
-<li>Ít thêm/xóa phần tử</li>
-<li>Biết trước số lượng phần tử</li>
-</ul>
-<p><strong>LinkedList:</strong></p>
-<ul>
-<li>Khi thêm/xóa ở đầu/cuối nhiều</li>
-<li>Sử dụng như Queue hoặc Stack</li>
-<li>Không cần truy cập ngẫu nhiên</li>
-</ul>
-<p><strong>HashMap:</strong></p>
-<ul>
-<li>Lưu trữ cặp key-value</li>
-<li>Cần tra cứu nhanh theo key</li>
-<li>Key là unique</li>
-</ul>
+<p>*Amortized O(1), đôi khi O(n) khi phải resize.</p>
 <h2 id="kết-luận">Kết luận</h2>
-<p>Collections Framework giúp:</p>
 <ul>
-<li>Tiết kiệm thời gian phát triển</li>
-<li>Code hiệu quả hơn</li>
-<li>Tránh phát minh lại bánh xe</li>
+<li><strong>Mặc định</strong>: <code>ArrayList</code>, <code>HashMap</code>, <code>HashSet</code>.</li>
+<li><strong>Cần giữ thứ tự insertion</strong>: <code>LinkedHashMap</code>, <code>LinkedHashSet</code>.</li>
+<li><strong>Cần sort</strong>: <code>TreeMap</code>, <code>TreeSet</code>.</li>
+<li><strong>Cần Queue/Deque tốt</strong>: <code>ArrayDeque</code>.</li>
 </ul>
-<p>Hãy chọn đúng Collection cho từng bài toán! 🎯</p>
 
         </div>
 
@@ -1996,21 +1902,26 @@
                 <div class="post-toc-title">TABLE OF CONTENTS</div>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#lý-thuyết-nhanh-vì-sao-cần-collections-framework">Lý thuyết nhanh: vì sao cần Collections Framework?</a></li>
+    <li><a href="#mục-tiêu-của-jcf">Mục tiêu của JCF</a></li>
+    <li><a href="#chọn-collection-như-thế-nào">Chọn Collection như thế nào?</a></li>
     <li><a href="#list-interface">List Interface</a>
       <ul>
-        <li><a href="#arraylist---dynamic-array">ArrayList - Dynamic Array</a></li>
-        <li><a href="#linkedlist---danh-sách-liên-kết">LinkedList - Danh sách liên kết</a></li>
+        <li><a href="#arraylist-default-choice">ArrayList (default choice)</a></li>
+        <li><a href="#linkedlist-dùng-như-dequequeue">LinkedList (dùng như Deque/Queue)</a></li>
+      </ul>
+    </li>
+    <li><a href="#set-interface">Set Interface</a>
+      <ul>
+        <li><a href="#hashset--linkedhashset--treeset">HashSet / LinkedHashSet / TreeSet</a></li>
       </ul>
     </li>
     <li><a href="#map-interface">Map Interface</a>
       <ul>
-        <li><a href="#hashmap---key-value-storage">HashMap - Key-Value Storage</a></li>
-        <li><a href="#ví-dụ-thực-tế-đếm-từ-trong-văn-bản">Ví dụ thực tế: Đếm từ trong văn bản</a></li>
+        <li><a href="#hashmap-phổ-biến-nhất">HashMap (phổ biến nhất)</a></li>
+        <li><a href="#ví-dụ-thực-tế-đếm-tần-suất-từ">Ví dụ thực tế: đếm tần suất từ</a></li>
       </ul>
     </li>
-    <li><a href="#so-sánh-arraylist-vs-linkedlist">So sánh ArrayList vs LinkedList</a></li>
-    <li><a href="#khi-nào-dùng-gì">Khi nào dùng gì?</a></li>
+    <li><a href="#bảng-so-sánh-nhanh">Bảng so sánh nhanh</a></li>
     <li><a href="#kết-luận">Kết luận</a></li>
   </ul>
 </nav>
