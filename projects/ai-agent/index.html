@@ -1678,6 +1678,44 @@
 <li>Loại đồ án: Chuyên ngành</li>
 <li>Công nghệ: AI, Web, Automation</li>
 </ul>
+<p><strong>Công nghệ &amp; Mô hình chính</strong></p>
+<ul>
+<li>Retrieval-Augmented Generation (RAG): kết hợp truy vấn semantic (vector search) với khả năng sinh ngôn ngữ để trả lời chính xác và có ngữ cảnh.</li>
+<li>Mô hình sinh (generator): <code>gemini 2.5-flash</code> — dùng để sinh câu trả lời, thao tác đặt hàng theo ngữ cảnh và tạo template giao tiếp với khách.</li>
+<li>Embeddings + Vector DB: lưu nội dung sản phẩm, FAQ, mô tả, lịch sử hội thoại để truy xuất (ví dụ: FAISS, Pinecone, Weaviate, Milvus).</li>
+<li>Stack code: frontend React, backend Node.js (Express) — mô-đun orchestration RAG, tích hợp API đặt hàng và quản lý trạng thái.</li>
+</ul>
+<p><strong>Luồng hoạt động (tóm tắt)</strong></p>
+<ol>
+<li>Người dùng hỏi trên giao diện React.</li>
+<li>Backend nhận truy vấn, tạo embedding cho câu hỏi, chạy truy vấn vector để lấy các đoạn ngữ cảnh liên quan (retriever).</li>
+<li>Backend ghép ngữ cảnh với prompt template và gửi cho <code>gemini 2.5-flash</code> để sinh câu trả lời (generator).</li>
+<li>Nếu người dùng xác nhận đặt hàng, backend gọi API đặt hàng nội bộ (hoặc thực hiện thao tác automation) và trả về trạng thái đơn cho frontend.</li>
+</ol>
+<p><strong>Gợi ý kiến trúc &amp; thành phần</strong></p>
+<ul>
+<li>Frontend (React): giao diện chat, form đặt hàng, xác nhận, hiển thị lịch sử. Gọi backend qua REST/WebSocket.</li>
+<li>Backend (Node.js/Express):
+<ul>
+<li>Module Embedding: tạo embedding cho câu hỏi và nội dung mới.</li>
+<li>Vector Store: lưu/tra cứu embedding.</li>
+<li>Retriever: semantic search để lấy ngữ cảnh.</li>
+<li>Orchestrator RAG: build prompt và gọi <code>gemini 2.5-flash</code>.</li>
+<li>Order Service: kiểm tra tồn kho, tạo đơn, xử lý payment (nếu cần).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Link GitHub</strong></p>
+<ul>
+<li>Repository: <a href="https://github.com/LeDucThinh203/Do_An_Chuyen_Nganh.git">https://github.com/LeDucThinh203/Do_An_Chuyen_Nganh.git</a></li>
+</ul>
+<p><strong>Lưu ý vận hành &amp; bảo mật</strong></p>
+<ul>
+<li>Tránh gửi PII (thông tin cá nhân nhạy cảm) trực tiếp vào prompt; sanitize hoặc tokenize khi cần lưu.</li>
+<li>Giới hạn rate cho các cuộc gọi tới model và vector DB để kiểm soát chi phí.</li>
+<li>Log và audit các thao tác tạo đơn; áp dụng xác thực + authorization cho API đặt hàng.</li>
+<li>Cân nhắc caching cho retriever để giảm độ trễ và chi phí.</li>
+</ul>
 
     </div>
 </article>
